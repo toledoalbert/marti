@@ -1,0 +1,25 @@
+{% extends "master.html" %}
+{% block content %}
+<div class="jumbotron">
+    <h1>Invalid File Format</h1>
+ <!-- <p><a class="btn btn-primary btn-lg">Get Stared</a></p>  -->
+</div>
+    <center><h1>Please Try Again</h1>
+</head>
+<body>
+ <!-- first modal window
+<div id="content">
+<div class="container">
+    <div class="progress progress-striped active">
+        <div class="bar" style="width: 0%;"></div>
+    </div>
+</div>
+-->
+{{ filename }}
+{% set count = 0 %}
+          {% for rows in filename %}
+        <tr><td>{{ filename[count]}}</td></tr>
+                {% set count = count+1 %}
+        {% endfor %}
+
+{% endblock %}

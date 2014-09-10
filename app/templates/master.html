@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang='en' enctype="multipart/form-data" >
+<head>
+<script language="JavaScript" type="text/javascript">
+<!--
+function getsupport ( selectedtype )
+{
+  document.supportform.supporttype.value = selectedtype ;
+  document.supportform.submit() ;
+}
+-->
+</script>
+{% block head %} {% endblock %}
+  <meta charset="utf-8" />
+  <title>{% block title %}{% endblock %} - Bricksquad Tweet Analysis</title>
+  <link href="{{ url_for('static', filename='css/bootstrap.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap-responsive.css')}}" rel="stylesheet">
+
+	<link rel="stylesheet/less" href="{{ url_for('static', filename='css/bootswatch.less')}}">
+	<link rel="stylesheet/less" href="{{ url_for('static', filename='css/variables.less')}}">
+		<div class="navbar navbar-inverse">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">Bricksquad</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <!-- Button trigger modal -->
+      <li><a data-target="#myModal" data-toggle="modal" >Upload Regular Expressions</a></li>
+      <li><a href="/weathermap">Weather Map</a></li>
+      <li><a href="/aboutme">About Us</a></li>
+    </ul>
+    <form class="navbar-form navbar-left" action="{{ url_for('result') }}" method="POST" >
+
+      <input type="text" id="load" name="expression" class="form-control col-lg-8" placeholder="Search Twitter" >
+      <input type="submit" value="Execute"/>
+    </form>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Link</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- Modal Upload Text File-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Upload Text File</h4>
+      </div>
+      <div class="modal-body">
+        <form method=POST enctype=multipart/form-data action="{{ url_for('upload_file') }}">
+      <p><input type=file name=file>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type=submit value=Upload  class="btn btn-primary">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+   <button id="load">Load It!</button>
+    <div class="modal js-loading-bar">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-body">
+           <div class="progress progress-popup">
+            <div class="progress-bar"></div>
+           </div>
+         </div>
+       </div>
+     </div>
+    </div>
+first modal window
+    <div id="modalwin" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <header class="modal-header">
+        <a href="#" class="close" data-dismiss="modal">x</a>
+        <h3>Prepare to be Amazed <small>or easily amused :]</small></h3>
+      </header>
+
+      <div class="modal-body">
+        <p>This is a generic modal window, but look we can add images!</small></p>
+
+        <p></p>
+
+        <p>Close me by clicking anywhere outside the window, or by clicking the blue button.</p>
+
+        <p></p>
+      </div>
+
+      <footer class="modal-footer">
+        <a href="#" class="btn btn-primary" id="okwin01">Sounds Good!</a>
+      </footer>
+    </div> <!-- @end @modalwin -->
+
+   <!-- @end @modalwin -->
+
+{% block content %}
+<div class="jumbotron">
+    <h1>Welcome To The Bricksquad Application</h1>
+ <!-- <p><a class="btn btn-primary btn-lg">Get Stared</a></p>  -->
+</div>
+    <center><h1>General Purpose Twitter Analytics</h1>
+</head>
+<body>
+ <!-- first modal window -->
+<div id="content">
+<div class="container">
+    <div class="progress progress-striped active">
+        <div class="bar" style="width: 0%;"></div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+			<!-- start Clients List -->
+			<div class="clients-carousel">
+
+				<ul class="slides clients">
+					<li><img src="{{ url_for('static', filename='img/logos/1.png')}}" alt=""/></li>
+					<li><img src="{{ url_for('static', filename='img/logos/2.png')}}" alt=""/></li>
+					<li><img src="{{ url_for('static', filename='img/logos/1.png')}}" alt=""/></li>
+					<li><img src="{{ url_for('static', filename='img/logos/2.png')}}" alt=""/></li>
+					<li><img src="{{ url_for('static', filename='img/logos/1.png')}}" alt=""/></li>
+					<li><img src="{{ url_for('static', filename='img/logos/2.png')}}" alt=""/></li>
+					<li><img src="{{ url_for('static', filename='img/logos/1.png')}}" alt=""/></li>
+					<li><img src="{{ url_for('static', filename='img/logos/2.png')}}" alt=""/></li>
+					<li><img src="{{ url_for('static', filename='img/logos/1.png')}}" alt=""/></li>
+					<li><img src="{{ url_for('static', filename='img/logos/2.png')}}" alt=""/></li>
+				</ul>
+
+			</div>
+			<!-- end Clients List -->
+
+</div>
+</body>
+<!-- start: Java Script -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script  src="{{ url_for('static', filename='js/modals.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/jquery-1.8.2.js')}}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+<script src="{{ url_for('static', filename='js/flexslider.js')}}"></script>
+<script src="{{ url_for('static', filename='js/carousel.js')}}"></script>
+<script src="{{ url_for('static', filename='js/jquery.cslider.js')}}"></script>
+<script src="{{ url_for('static', filename='js/slider.js')}}"></script>
+<script defer="defer" src="{{ url_for('static', filename='js/custom.js')}}"></script>
+
+
+<!-- end: Java Script -->
+</html>
