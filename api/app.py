@@ -1,29 +1,39 @@
 from flask import *
 import flask
-from flask.ext.tweepy import Tweepy
 from flask import jsonify
 import tweepy
 
 app = flask.Flask(__name__)
 
-# app.config.setdefault('TWEEPY_CONSUMER_KEY', 'Lr5Rq8fUegY0HiZwQAklQfRDw')
-# app.config.setdefault('TWEEPY_CONSUMER_SECRET', '5iFM3HOGTbuM8incfI1SNujNHnaoMALTyqKL7f25zmIJWWaOaa')
-# app.config.setdefault('TWEEPY_ACCESS_TOKEN_KEY', '41089072-DUXKDDlEZNoA7mCfpQWGTVHcEEw4CNbPemJJs1ZpA')
-# app.config.setdefault('TWEEPY_ACCESS_TOKEN_SECRET', 'o3SaoOZqvXG6kEeLIkt7YTBtv03iGLIDskj1SXk6RWWwv')
-
-# tweepy = Tweepy(app)
-
 auth = tweepy.auth.OAuthHandler("Lr5Rq8fUegY0HiZwQAklQfRDw", "5iFM3HOGTbuM8incfI1SNujNHnaoMALTyqKL7f25zmIJWWaOaa", secure=True)
+# auth.set_access_token("41089072-DUXKDDlEZNoA7mCfpQWGTVHcEEw4CNbPemJJs1ZpA", "o3SaoOZqvXG6kEeLIkt7YTBtv03iGLIDskj1SXk6RWWwv")
 api = tweepy.API(auth)
 
 @app.route("/")
 def Hello():
     return "Hello Marti"
 
-@app.route("/timeline")
+@app.route("/tweets")
 def timeline():
-    for tweet in api.home_timeline():
-        print tweet.text
+
+    keywords = "cloudy OR sunny"
+    results = tweepy.Cursor(api.search, q=keywords, lang="en", result_type="recent", geocode="37.781157,-122.398720,500mi").items(1000)
+    tweets = []
+
+    for tweet in results:
+        tweets.append(
+                {
+                    "text":tweet.text, 
+                    "id":tweet.id
+                    #, "loc": tweet.coordinates
+                }
+            )
+
+
+
+    response = {"data":tweets}
+    return jsonify(response)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
