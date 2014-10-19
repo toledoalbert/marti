@@ -32,9 +32,9 @@ def timeline():
 
 
 
-    response = {"data":tweets}
+    response = jsonify({"data":tweets})
     response.headers['Access-Control-Allow-Origin'] = '*'
-    return jsonify(response)
+    return response
 
 
 if __name__ == '__main__':
