@@ -17,7 +17,7 @@ def Hello():
 def timeline():
 
     keywords = "cloudy OR sunny"
-    results = tweepy.Cursor(api.search, q=keywords, lang="en", result_type="recent", geocode="37.781157,-122.398720,500mi").items(1000)
+    results = tweepy.Cursor(api.search, q=keywords, lang="en", result_type="recent", geocode="37.781157,-122.398720,500mi").items(100)
     tweets = []
 
     for tweet in results:
