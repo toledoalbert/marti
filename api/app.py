@@ -2,7 +2,7 @@ from flask import *
 import flask
 from flask import jsonify
 import tweepy
-# from flask.ext.jsonpify import jsonify
+from flask.ext.jsonpify import jsonify
 
 app = flask.Flask(__name__)
 
