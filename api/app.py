@@ -2,7 +2,7 @@ from flask import *
 import flask
 from flask import jsonify
 import tweepy
-from flask.ext.jsonpify import jsonify
+# from flask.ext.jsonpify import jsonify
 
 app = flask.Flask(__name__)
 
@@ -17,7 +17,7 @@ def Hello():
 @app.route("/tweets")
 def timeline():
 
-    keywords = "cloudy OR sunny"
+    keywords = "weather"
     results = tweepy.Cursor(api.search, q=keywords, lang="en", result_type="recent", geocode="37.781157,-122.398720,500mi").items(100)
     tweets = []
 
@@ -33,6 +33,7 @@ def timeline():
 
 
     response = {"data":tweets}
+    response.headers['Access-Control-Allow-Origin'] = '*'
     return jsonify(response)
 
 
