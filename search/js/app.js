@@ -1,16 +1,19 @@
 twttr.ready(function (twttr) {
 
-	$.getJSON( "https://martiapi.herokuapp.com/tweets", function( data ) {
-    var items = [];
-    $.each( data, function( key, val ) {
-      items.push( "<li id='" + key + "'>" + val + "</li>" );
-    });
-   
-    $( "<ul/>", {
-      "class": "my-new-list",
-      html: items.join( "" )
-    }).appendTo( "body" );
-  });
+$.ajax({
+    url: "http://martiapi.herokuapp.com/tweets",
+ 
+    // the name of the callback parameter, as specified by the YQL service
+    jsonp: "callback",
+ 
+    // tell jQuery we're expecting JSONP
+    dataType: "jsonp",
+ 
+    // work with the response
+    success: function( response ) {
+        console.log( response ); // server response
+    }
+});
 
 
 	
