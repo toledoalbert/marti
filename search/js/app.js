@@ -2,17 +2,18 @@ twttr.ready(function (twttr) {
 
   $.ajax({
       // url: "http://martiapi.herokuapp.com/tweets",
-      url: "http://0.0.0.0:5002/tweets",
+      url: "http://martiapi.herokuapp.com/tweets",
    
       // the name of the callback parameter, as specified by the YQL service
-      jsonp: "callback",
+      json: "callback",
    
       // tell jQuery we're expecting JSONP
-      dataType: "jsonp",
+      dataType: "json",
    
       // work with the response
       success: function( response ) {
           $.each( response.data, function( key, val ) {
+              console.log("in the loop");
               twttr.widgets.createTweetEmbed(
                 val.id,
                   document.getElementById('container'),
