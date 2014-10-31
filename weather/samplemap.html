@@ -1,10 +1,9 @@
-
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>A D3 Weathermap</title>
+    <title>Marti Twitter Weathermap</title>
     
     <meta name="author" content="Marti">
 
@@ -14,23 +13,35 @@
     <![endif]-->
 
     <!-- favicon -->
-    <link rel="icon" type="image/png" href="/assets/themes/twitter/img/ship.png">
+    <link rel="icon" type="image/png" href="C:\Users\JaMerra\Desktop\map\apple-touch-icon.png">
 
-    <!-- Le styles -->
-    <link href="/assets/themes/twitter/css/font-awesome.css?body=1" rel='stylesheet' type="text/css" media="all">
-    <link href="http://fonts.googleapis.com/css?family=Cabin" rel='stylesheet' type='text/css'>
-    <link href="http://fonts.googleapis.com/css?family=PT+Sans" rel='stylesheet' type="text/css" media="all">
-    <link href='http://fonts.googleapis.com/css?family=Raleway:200,400,500,600700' rel='stylesheet' type='text/css'>
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+<!-- Le styles -->
+    <link href="C:/Users/JaMerra/Desktop/marti/weather/style/font-awesome.css" rel='stylesheet' 
+type="text/css" media="all">
+    <link href="//fonts.googleapis.com/css?family=Cabin" rel='stylesheet' 
+type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=PT+Sans" rel='stylesheet' 
+type="text/css" media="all">
+    <link href=''//fonts.googleapis.com/css?family=Raleway:200,400,500,600700' 
+rel='stylesheet' type='text/css'>
+    <link href="C:/Users/JaMerra/Desktop/marti/weather/style/bootstrap.min.css" 
+rel="stylesheet">
+    <link href="C:/Users/JaMerra/Desktop/marti/weather/style/bootstrap-responsive.min.css" 
+rel="stylesheet">
+    <link href="C:/Users/JaMerra/Desktop/marti/weather/style/stylebody.css" rel="stylesheet" 
+type="text/css" media="all">
+
+
+
+
+
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <link rel="shortcut icon" href="apple-touch-icon.png" type ="image/png" />
+    <link rel="apple-touch-icon" href="images/png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
   -->
 
     <script type="text/javascript">
@@ -46,119 +57,20 @@
   })();
 
   </script>
+
+<div class="container">
+  <div style="margin-bottom: 50px;">
+    <div class="page-header">
+	<img src = "apple-touch-icon.png" height= "15%" width= "15%">
+      <h1 style="text-decoration:none; color: #004C99;font size: 80 px;text-align: center;">Twitter WeatherMap</a></h1> 
+
+    </div>
+
+
   </head>
 
   <body>
-    <div class="bg-setter">
-      <div class="navbar">
-        <div class="navbar-inner">
-          <div class="container">
-            <a class="brand" href="/">Matthew Isabel</a>
-            <ul class="nav">
-              
-              
-              
-
-
-  
     
-      
-      	
-      	<li><a href="/about.html">About</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive.html">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/projects.html">Projects</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-
-
-
-            </ul>
-          </div>
-        </div>
-      </div>
-
 
         
 
@@ -166,24 +78,28 @@
 <link href="./style.css" rel="stylesheet" type="text/css" />
 <style>
   path {
-    fill: #9B18DB;
-    stroke: #B431F4;
+    fill: #004C99;
+    stroke: #0080FF;
   }
 </style>
-<section style="background-color: #B431F4; width: 100%; padding-top: 50px; padding-bottom: 50px; border-top: 2px solid #FF3131; border-bottom: 2px solid #FF3131;">
+<section style="background-color: #0080FF; width: 100%; padding-top: 50px; padding-bottom: 50px; border-top: 2px solid #000066; border-bottom: 2px solid #000066;">
   <div> 
-    <h2 style="color: #5BE5FF; text-align: center; margin-bottom: 20px; font-weight: 200;">ATL • DAL • DC • CHI • NYC • SF • SEA</h2>
+    <h2 style="color: #FFFFFF; text-align: center; margin-bottom: 20px; font-weight: 200;">ATL â€¢ DAL â€¢ DC â€¢ CHI â€¢ NYC â€¢ SF â€¢ SEA</h2>
     <svg id="chart" style="display:block; text-align:center; margin: 0 auto;" width="960" height="500" viewBox="0 0 960 500" preserveAspectRatio="xMidYMid"></svg>
   </div>
 </section>
+
+
 <div class="container">
   <div style="margin-bottom: 50px;">
     <div class="page-header">
-      <h1><a href="/projects/albers/samplemap.html" style="text-decoration:none; color: #FF3131;">A D3 Weathermap</a></h1>
+      <h1><a href="http:twitter.com" style="text-decoration:none; color: #004C99;">Twitter Feed</a></h1>
+<img src = "weather_tweets.png">
     </div>
-      <p>I took the basic map from my <a href="/projects/albers/samplechart.html">previous post</a> and made it into a live weather map. The seven cities were chosen fairly arbitrarily. Hovering over a city provides some additional details. I'll post a bit more of a tutorial by request.</p>
 
-      <p>As always, feel free to read and reuse the code. The weather data comes from <a href="http://openweathermap.org/API">Open Weather Map</a>. They're awesome for having a free and easy JSON API. If you any suggestions, feel free to hit me up on <a href="http://twitter.com/matthewisabel">Twitter.</a></p>
+      <p>The twitter feed produced can also be <a href="/search.html">search and viewed</a> . The objective is to view current weather based on Tweets from <a href="http:twitter.com">Twitter.</p>
+
+      
     </div>
   </div>
 </div>
@@ -224,7 +140,7 @@
 
 
       $.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + locationData.coordinates[0] + '&lon=' + locationData.coordinates[1] + '&units=imperial&callback=?', function(data) {
-        tipText = "<h2 style='color: #FFF; font-weight: 100;'>" + locationData.city + "</h2><h4 style='color: #FFF; font-weight: 100;'>" + data.weather[0].description.toString().toLowerCase() + "</h4><h3 style='font-size: 80px; font-family: Helvetica Neue, Segoe UI Light, Arial; font-weight: 100; color: #FFF; line-height: 80px;'>" + data.main.temp.toString().split('.')[0] + "°F</h3>";
+        tipText = "<h2 style='color: #FFF; font-weight: 100;'>" + locationData.city + "</h2><h4 style='color: #FFF; font-weight: 100;'>" + data.weather[0].description.toString().toLowerCase() + "</h4><h3 style='font-size: 80px; font-family: Helvetica Neue, Segoe UI Light, Arial; font-weight: 100; color: #FFF; line-height: 80px;'>" + data.main.temp.toString().split('.')[0] + "Â°F</h3>";
         addWeather(coordinates, tipText, locationData.city, data)
       });
 
@@ -335,7 +251,18 @@
 </script>
 
 
-
+<!-- Social icons made possible with the help of Font Awesome - http://fortawesome.github.com/Font-Awesome --> 
+  <div class="clear-footer"></div>
+  </div>
+  <div id="footer">
+    <div id="boxes"></div>
+    <div id="contact">
+      <a href="https://twitter.com/matthewisabel" class="twitter">
+        <i class="icon-twitter"></i></a>
+    </div>
+    <p class="legal">Copyright Â© 2014 by Marti</p>
+    <p class="legal">Created using <a href='https://github.com/mojombo/jekyll' style="color:#004C99;text-decoration:none;font-style:italic;">Jekyll</a> and hosted on S3</p>
+  </div>
     
   </body>
 </html>
