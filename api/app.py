@@ -13,10 +13,13 @@ api = tweepy.API(auth)
 #URL
 @app.route("/")
 def Hello():
-    return "Hello Marti"
+   return "Hello Marti"
 
-@app.route("/tweets")
-def timeline():
+
+@app.route('/<bagofwords>', defaults={'geocodes': None})
+@app.route('/<bagofwords>/<geocodes>')
+def getTweets(bagofwords, geocodes):
+    '''
     geo_codesCapitals={
 "Montgomery":"32.380120,-86.300629,100mi",
 "Juneau":"58.299740,-134.406794,100mi",
@@ -134,16 +137,29 @@ def timeline():
 "WY":"42.7475,-107.2085,500mi",
 
     }
-    keywords =  "cold"
-    results = tweepy.Cursor(api.search, q=keywords, lang="en", result_type="recent", geocode=geo_codesCapitals["Atlanta"]).items(100)
+    '''
+    wordsArray=bagofwords.split('+')
+    bagofwords=bagofwords.replace('+',' OR ' )
+
+    #gecode Option 
+    results = tweepy.Cursor(api.search, q=bagofwords, lang="en", result_type="recent", geocode=geocodes).items(100)
     
     tweets = []
 
     for tweet in results:
         tweets.append(
                 {
-                    "text":tweet.text, 
-                    "id":tweet.id
+                    'text':tweet.text, 
+                    'id':tweet.id,
+                    'sentiment':'positive',
+                    'time':'past',
+                    'scores':[
+                        {
+                           'word':'sunny',
+                           'score':20 
+
+                            }
+                     ]
                     #, "loc": tweet.coordinates
                 }
             )
