@@ -1,4 +1,4 @@
-function getFilteredTweets(wordsArray, positive, negative, neutral, past, present, future) {
+function getFilteredTweets(wordsArray, positive, negative, neutral, past, present, future, geocode) {
 	
 	words = concatWords(wordsArray);
 
@@ -8,7 +8,7 @@ function getFilteredTweets(wordsArray, positive, negative, neutral, past, presen
 	response = [20, 54, 234, 34, 54, 65, 23, 75];
 }
 
-function getTweets(wordsArray) {
+function getTweets(wordsArray, geocode) {
 
 	words = concatWords(wordsArray);
 
