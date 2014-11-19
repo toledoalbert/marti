@@ -1,0 +1,15 @@
+api - alot of url's to make calls to and return json data using javascript code to api
+sdk(written in javascript)-alot of functions that makes calls to api
+weather map app(written in javascript,html,css)-makes calls to api to get weather map info and api returns the request to weather map in json format
+search app(written in javascript,html,css)-makes calls to api to get search app info and api returns the request to search in json format
+
+backend is api, front end is json, weather, search
+api includes python->classes and dependents in the server
+ 
+to make calls and returns weather map ->sdk-> api->sdk->weather map
+to make calls and returns search ->sdk-> api->sdk->search
+
+api analyzes/manipulates tweets and returns calls
+
+mongo-database to store information for user authenticy
+
