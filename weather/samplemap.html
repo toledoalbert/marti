@@ -13,7 +13,7 @@
     <![endif]-->
 
     <!-- favicon -->
-    <link rel="icon" type="image/png" href="C:\Users\JaMerra\Desktop\map\apple-touch-icon.png">
+    <!-- <link rel="icon" type="image/png" href="C:\Users\JaMerra\Desktop\map\apple-touch-icon.png"> -->
 
 <!-- Le styles -->
     <link href="/marti/weather/font-awesome.css" rel='stylesheet' 
@@ -31,7 +31,10 @@ rel="stylesheet">
     <link href="/marti/weather/stylebody.css" rel="stylesheet" 
 type="text/css" media="all">
     <link href="/font-awesome-4.2.0" rel="stylesheet" 
+type="text/css" media="all">    
+<link href="style/icons.css" rel="stylesheet" 
 type="text/css" media="all">
+
 
 
 
@@ -118,7 +121,7 @@ type="text/css" media="all">
   var map = d3.select("svg");
   var projection = d3.geo.albers()
   var path = d3.geo.path().projection(projection);
-  d3.json('./us-states.json', function(collection) {
+  d3.json('us-states.json', function(collection) {
       map.selectAll('path')
         .data(collection.features)
         .enter().append('path').attr('d', path);
@@ -145,27 +148,27 @@ type="text/css" media="all">
 
       // This is ugly, but I'm lazy
       if(suggested == "01d") {
-        icon = "sun.svg";
+        icon = "img/sunny.svg";
       }else if(suggested == "01n") {
-        icon = "moon.svg";
+        icon = "img/moon.svg";
       }else if(suggested == "02d" || suggested == "03d" || suggested == "04d") {
-        icon = "cloud2.svg";
+        icon = "img/cloud.svg";
       }else if(suggested == "02n" || suggested == "03n" || suggested == "04n") {
-        icon = "cloud.svg";
+        icon = "img/cloud.svg";
       }else if(suggested == "09d" || suggested == "09n" || suggested == "50d" || suggested == "50n") {
-        icon = "rainy.svg";
+        icon = "img/rain.svg";
       }else if(suggested == "10d" || suggested == "10n") {
-        icon = "rainy2.svg";
+        icon = "img/rain.svg";
       }else if(suggested == "11d" || suggested == "11n") {
-        icon = "lightning.svg";
+        icon = "img/lightning.svg";
       }else if(suggested == "13d" || suggested == "13n") {
-        icon = "snowflake1.svg";
+        icon = "img/snow.svg";
       }
 4325  
       var imgs = map.selectAll("body").data(coordinates);
           imgs.enter()
           .append("svg:image")
-          .attr("xlink:href", './SVG/' + icon)
+          .attr("xlink:href", '' + icon)
           .attr("x", coordinates[0] - 13)
           .attr("y", coordinates[1] - 13)
           .attr("width", "20px")
