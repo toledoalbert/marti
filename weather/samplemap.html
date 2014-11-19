@@ -16,21 +16,22 @@
     <link rel="icon" type="image/png" href="C:\Users\JaMerra\Desktop\map\apple-touch-icon.png">
 
 <!-- Le styles -->
-    <link href="C:/Users/JaMerra/Desktop/marti/weather/style/font-awesome.css" rel='stylesheet' 
+    <link href="/marti/weather/font-awesome.css" rel='stylesheet' 
 type="text/css" media="all">
     <link href="//fonts.googleapis.com/css?family=Cabin" rel='stylesheet' 
 type='text/css'>
     <link href="//fonts.googleapis.com/css?family=PT+Sans" rel='stylesheet' 
 type="text/css" media="all">
-    <link href=''//fonts.googleapis.com/css?family=Raleway:200,400,500,600700' 
+    <link href='//fonts.googleapis.com/css?family=Raleway:200,400,500,600700' 
 rel='stylesheet' type='text/css'>
-    <link href="C:/Users/JaMerra/Desktop/marti/weather/style/bootstrap.min.css" 
+    <link href="/marti/weather/bootstrap.min.css" 
 rel="stylesheet">
-    <link href="C:/Users/JaMerra/Desktop/marti/weather/style/bootstrap-responsive.min.css" 
+    <link href="/marti/weather/bootstrap-responsive.min.css" 
 rel="stylesheet">
-    <link href="C:/Users/JaMerra/Desktop/marti/weather/style/stylebody.css" rel="stylesheet" 
+    <link href="/marti/weather/stylebody.css" rel="stylesheet" 
 type="text/css" media="all">
-
+    <link href="/font-awesome-4.2.0" rel="stylesheet" 
+type="text/css" media="all">
 
 
 
@@ -42,6 +43,7 @@ type="text/css" media="all">
     <link rel="apple-touch-icon" href="images/png">
     <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   -->
 
     <script type="text/javascript">
@@ -61,11 +63,13 @@ type="text/css" media="all">
 <div class="container">
   <div style="margin-bottom: 50px;">
     <div class="page-header">
-	<img src = "apple-touch-icon.png" height= "15%" width= "15%">
-      <h1 style="text-decoration:none; color: #004C99;font size: 80 px;text-align: center;">Twitter WeatherMap</a></h1> 
+	<img src = "apple-touch-icon.png" height= "25%" width= "25%">
+      <h1 style="text-decoration:none; color: #004C99;font size: 150 px;text-align: center;">Marti WeatherMap</a></h1> 
 
     </div>
 
+<a href="https://twitter.com/intent/tweet?button_hashtag=weather" class="twitter-hashtag-button" data-size="large" data-related="getOutMyMerra">Tweet #weather</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
   </head>
 
@@ -84,25 +88,13 @@ type="text/css" media="all">
 </style>
 <section style="background-color: #0080FF; width: 100%; padding-top: 50px; padding-bottom: 50px; border-top: 2px solid #000066; border-bottom: 2px solid #000066;">
   <div> 
-    <h2 style="color: #FFFFFF; text-align: center; margin-bottom: 20px; font-weight: 200;">ATL • DAL • DC • CHI • NYC • SF • SEA</h2>
+    <h2 style="color: #FFFFFF; text-align: center; margin-bottom: 20px; font-weight: 200;">• Weather Displayed for state capitals •</h2>
     <svg id="chart" style="display:block; text-align:center; margin: 0 auto;" width="960" height="500" viewBox="0 0 960 500" preserveAspectRatio="xMidYMid"></svg>
   </div>
 </section>
 
 
-<div class="container">
-  <div style="margin-bottom: 50px;">
-    <div class="page-header">
-      <h1><a href="http:twitter.com" style="text-decoration:none; color: #004C99;">Twitter Feed</a></h1>
-<img src = "weather_tweets.png">
-    </div>
 
-      <p>The twitter feed produced can also be <a href="/search.html">search and viewed</a> . The objective is to view current weather based on Tweets from <a href="http:twitter.com">Twitter.</p>
-
-      
-    </div>
-  </div>
-</div>
 <script src="./jquery.js"></script>
 <script src="./d3.v2.min.js"></script>
 <script src="./jquery.tipsy.js"></script>
@@ -167,9 +159,9 @@ type="text/css" media="all">
       }else if(suggested == "11d" || suggested == "11n") {
         icon = "lightning.svg";
       }else if(suggested == "13d" || suggested == "13n") {
-        icon = "snowy2.svg";
+        icon = "snowflake1.svg";
       }
-  
+4325  
       var imgs = map.selectAll("body").data(coordinates);
           imgs.enter()
           .append("svg:image")
@@ -221,28 +213,182 @@ type="text/css" media="all">
         city: 'atlanta'
       });
       mapCity({
-        coordinates: ['40.760521','-73.983704'],
-        city: 'nyc'
+        coordinates: ['42.651445','-73.755254'],
+        city: 'albany'
       });
       mapCity({
-        coordinates: ['37.740042','-122.391182'],
-        city: 'sf'
+        coordinates: ['35.785510','-78.642669'],
+        city: 'raleigh'
       });
       mapCity({
-        coordinates: ['41.875696','-87.631288'],
-        city: 'chicago'
-      });
-      mapCity({
-        coordinates: ['32.765336','-96.787019'],
-        city: 'dallas'
+        coordinates: ['46.805372','-100.779334'],
+        city: 'bismark'
       });
       mapCity({
         coordinates: ['38.8044','-77.012208'],
         city: 'dc'
       });
       mapCity({
-        coordinates: ['47.599971','-122.314924'],
-        city: 'seattle'
+        coordinates: ['32.380120','-86.300629'],
+        city: 'montgomery'
+      });
+      mapCity({
+        coordinates: ['58.299740','-134.406794'],
+        city: 'juneau'
+      });
+     mapCity({
+        coordinates: ['33.448260','-112.075774'],
+        city: 'phoenix'
+      });
+     mapCity({
+        coordinates: ['34.748655','-92.274494'],
+        city: 'little rock'
+      });
+     mapCity({
+        coordinates: ['38.579065','-121.491014'],
+        city: 'sacramento'
+      });     mapCity({
+        coordinates: ['39.740010','-104.992259'],
+        city: 'denver'
+      });     mapCity({
+        coordinates: ['41.763325','-72.674069'],
+        city: 'hartford'
+      });     mapCity({
+        coordinates: ['39.158035','-75.524734'],
+        city: 'dover'
+      });     mapCity({
+        coordinates: ['30.439775','-84.280649'],
+        city: 'tallahassee'
+      });     mapCity({
+        coordinates: ['21.304770','-157.857614'],
+        city: 'honolulu'
+      });     mapCity({
+        coordinates: ['43.606980','-116.193409'],
+        city: 'boise'
+      });     mapCity({
+        coordinates: ['39.801055','-89.643604'],
+        city: 'springfield'
+      });     mapCity({
+        coordinates: ['39.766910','-86.149964'],
+        city: 'indianapolis'
+      });     mapCity({
+        coordinates: ['41.589790','-93.615659'],
+        city: 'des moines'
+      });     mapCity({
+        coordinates: ['39.049285','-95.671184'],
+        city: 'topeka'
+      });     
+	mapCity({
+        coordinates: ['38.195070','-84.878694'],
+        city: 'frankfort'
+      });    
+	mapCity({
+        coordinates: ['30.443345','-91.186994'],
+        city: 'baton rouge'
+      });      
+	mapCity({
+        coordinates: ['44.318036','-69.776218'],
+        city: 'augusta'
+      });     mapCity({
+        coordinates: ['38.976700','-76.489934'],
+        city: 'annapolis'
+      });     mapCity({
+        coordinates: ['42.358635','-71.056699'],
+        city: 'boston'
+      });     mapCity({
+        coordinates: ['42.731940','-84.552249'],
+        city: 'lansing'
+      });     mapCity({
+        coordinates: ['44.943829','-93.093326'],
+        city: 'saint paul'
+      });     mapCity({
+        coordinates: ['32.298690','-90.180489'],
+        city: 'jackson'
+      });     mapCity({
+        coordinates: ['38.577515','-92.177839'],
+        city: 'jefferson city'
+      });     mapCity({
+        coordinates: ['46.589760','-112.021202'],
+        city: 'helana'
+      });     mapCity({
+        coordinates: ['40.813620','-96.707739'],
+        city: 'lincoln'
+      });     mapCity({
+        coordinates: ['39.164885','-119.766999'],
+        city: 'carson city'
+      });     mapCity({
+        coordinates: ['43.207250','-71.536604'],
+        city: 'concord'
+      });     mapCity({
+        coordinates: ['40.217875','-74.759404'],
+        city: 'trenton'
+      });     mapCity({
+        coordinates: ['35.691543','-105.937406'],
+        city: 'santa fe'
+      });
+      mapCity({
+        coordinates: ['39.961960','-83.002984'],
+        city: 'columbus'
+      });     
+	 mapCity({
+        coordinates: ['35.472015','-97.520354'],
+        city: 'oklahoma'
+      });
+      mapCity({
+        coordinates: ['44.933260','-123.043814'],
+        city: 'salem'
+      });
+      mapCity({
+        coordinates: ['40.259865','-76.882230'],
+        city: 'harrisburg'
+      });
+      mapCity({
+        coordinates: ['41.823875','-71.411994'],
+        city: 'providence'
+      });
+      mapCity({
+        coordinates: ['33.998550','-81.045249'],
+        city: 'columbia'
+      });
+      mapCity({
+        coordinates: ['44.368924','-100.350158'],
+        city: 'pierre'
+      });
+      mapCity({
+        coordinates: ['36.167783','-86.778365'],
+        city: 'nashville'
+      });
+      mapCity({
+        coordinates: ['40.759505','-111.888229'],
+        city: 'salt lake city'
+      });
+      mapCity({
+        coordinates: ['30.267605','-97.742984'],
+        city: 'austin'
+      });
+      mapCity({
+        coordinates: ['44.260299','-72.576264'],
+        city: 'montpelier'
+      });
+      mapCity({
+        coordinates: ['37.540700','-77.433654'],
+        city: 'richmond'
+      });
+     mapCity({
+        coordinates: ['47.039231','-122.891366'],
+        city: 'olympia'
+      });
+     mapCity({
+        coordinates: ['38.350195','-81.638989'],
+        city: 'charleston'
+      });
+     mapCity({
+        coordinates: ['43.072950','-89.386694'],
+        city: 'madison'
+      });
+     mapCity({
+        coordinates: ['41.134815','-104.821544'],
+        city: 'cheyenne'
       });
       fired++;
     }
@@ -250,20 +396,6 @@ type="text/css" media="all">
   });
 </script>
 
-
-<!-- Social icons made possible with the help of Font Awesome - http://fortawesome.github.com/Font-Awesome --> 
-  <div class="clear-footer"></div>
-  </div>
-  <div id="footer">
-    <div id="boxes"></div>
-    <div id="contact">
-      <a href="https://twitter.com/matthewisabel" class="twitter">
-        <i class="icon-twitter"></i></a>
-    </div>
-    <p class="legal">Copyright © 2014 by Marti</p>
-    <p class="legal">Created using <a href='https://github.com/mojombo/jekyll' style="color:#004C99;text-decoration:none;font-style:italic;">Jekyll</a> and hosted on S3</p>
-  </div>
-    
   </body>
 </html>
 
