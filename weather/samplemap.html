@@ -46,7 +46,7 @@
           <div class="col-md-6" id="menu">
               
               <!-- <p class="logo navItem">Marti Search</p> -->
-              <img class="navItem logo" src="img/SearchLogo.png" alt="">
+              <img class="navItem logo" src="img/WeatherLogo.png" alt="">
 
           </div>
 
@@ -60,7 +60,7 @@
 
     </div>
 
-    <section style="background-color: #0080FF; width: 100%; padding-top: 50px; padding-bottom: 50px; border-top: 2px solid #000066; border-bottom: 2px solid #000066;">
+    <section style="background-color: #B800FF; width: 100%; padding-top: 50px; padding-bottom: 50px;">
       <div>
         <svg id="chart" style="display:block; text-align:center; margin: 0 auto;" width="960" height="500" viewBox="0 0 960 500" preserveAspectRatio="xMidYMid"></svg>
       </div>
@@ -142,6 +142,22 @@
               .attr("width", "20px")
               .attr("height", "20px")
 
+          var imgs = map.selectAll("body").data(coordinates);
+              imgs.enter()
+              .append("object")
+              .attr("data", '' + icon)
+              .attr("x", coordinates[0] - 13)
+              .attr("y", coordinates[1] - 13)
+              .attr("width", "20px")
+              .attr("height", "20px")
+
+                  // d3.select("body")
+                  // .append("object")
+                  // .attr("data", "mySVGpicture.svg")
+                  // .attr("width", 500)
+                  // .attr("height", 500)
+                  // .attr("type", "image/svg+xml");
+
           // This is a hack for the toolips because hover of the svg icons isn't working
           map.append('svg:rect')
               .attr("class", "Rects")
@@ -156,22 +172,22 @@
               .attr('y', coordinates[1] - 13)
 
 
-          addTipsy(tipText, city);
+          // addTipsy(tipText, city);
       };
 
 
-      // Add tipsy tooltip
-      function addTipsy(tipText, city) {
-        $('#' + city).tipsy({
-          gravity: 'w',
-          fade: true,
-          html: true,
-          opacity: 1,
-          title: function() {
-            return tipText;
-          }
-        });
-      }
+      // // Add tipsy tooltip
+      // function addTipsy(tipText, city) {
+      //   $('#' + city).tipsy({
+      //     gravity: 'w',
+      //     fade: true,
+      //     html: true,
+      //     opacity: 1,
+      //     title: function() {
+      //       return tipText;
+      //     }
+      //   });
+      // }
 
       // Ensure cities only fire once
       var fired = 0;
