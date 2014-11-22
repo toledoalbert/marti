@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Marti Search | Contextual Tweet Search</title>
+        <meta name="description" content="Bubada restaurant website">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="style/bootstrap.min.css">
+        <link rel="stylesheet" href="style/main.css">
+
+    </head>
+    <body>
+
+        <div id="navbar" class="row">
+
+            <div class="container nav">
+                
+                <div class="col-md-6" id="menu">
+                    
+                    <!-- <p class="logo navItem">Marti Search</p> -->
+                    <img class="navItem logo" src="img/SearchLogo.png" alt="">
+
+                </div>
+
+                <div class="col-md-6" id="location">
+
+                    <p class="text-right navItem"><a href="#">ABOUT</a></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="container">
+            
+            <div class="row search">
+
+                <h2>API Calls</h2>
+                
+                <div class="call">
+
+                    <br>
+                    <h3>Search for Keywords and Location</h3>
+                    <p class="function">/bagofwords/geocodes</p>
+                    <p class="description">
+                        This API call allows you to pass in two parameters, a set of words you want to search
+                        for in a Tweet, as well as the geocode of a specific location you want to retrieve the Tweets from.
+                        <br>
+                        The bag of words should be inserted with a + as the delimeter.
+                        <br>
+                    </p>
+                    <h4>Example:</h4>
+                    <p class="function">http://martiapi.herokuapp.com/hampton+university/33.448260,-112.075774,100mi</p>
+                </div>
+
+                <div class="call">
+
+                    <br>
+                    <h3>Search for Keywords</h3>
+                    <p class="function">/bagofwords</p>
+                    <p class="description">
+                        This API call allows you to pass in one parameters, a set of words you want to search
+                        for in a Tweet.
+                        <br>
+                        The bag of words should be inserted with a + as the delimeter.
+                        <br>
+                    </p>
+                    <h4>Example:</h4>
+                    <p class="function">http://martiapi.herokuapp.com/hampton+university</p>
+                </div>
+
+            </div>
+            
+            <div class="row search">
+                
+                <div id="results"></div>
+
+            </div>
+
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

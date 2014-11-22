@@ -59,15 +59,17 @@ var searchTweets = function(keywords) {
       // work with the response
       success: function( response ) {
           $.each( response.data, function( key, val ) {
+            setTimeout(function () {
               console.log("in the loop", key, val.id);
               twttr.widgets.createTweetEmbed(
-                val.id,
-                  document.getElementById('results'),
-                  {
-                    theme: 'light', align: 'center'
-                  }).then( function(el) {
-                    document.getElementById("spinner").style.display = "none";
-                  });
+              val.id,
+                document.getElementById('results'),
+                {
+                  theme: 'light', align: 'center'
+                }).then( function(el) {
+                  document.getElementById("spinner").style.display = "none";
+                });
+            }, 5000);
           });
       }
   });
