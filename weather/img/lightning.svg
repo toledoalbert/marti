@@ -1,12 +1,12 @@
-<svg version="1.1" id="cloudLightningFill" class="climacon climacon_cloudLightningFill" viewBox="15 15 70 70"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
-    <g class="climacon_iconWrap climacon_iconWrap-cloudLightningFill">
-      <g class="climacon_wrapperComponent climacon_wrapperComponent-lightning">
-        <polygon class="climacon_component climacon_component-stroke climacon_component-stroke_lightning" points="48.001,51.641 57.999,51.641 52,61.641 58.999,61.641 46.001,77.639 49.601,65.641 43.001,65.641 "></polygon>
-      </g>
-      <g class="climacon_componentWrap climacon_componentWrap_cloud">
-        <path class="climacon_component climacon_component-stroke climacon_component-stroke_cloud" d="M43.945,65.639c-8.835,0-15.998-7.162-15.998-15.998c0-8.836,7.163-15.998,15.998-15.998c6.004,0,11.229,3.312,13.965,8.203c0.664-0.113,1.338-0.205,2.033-0.205c6.627,0,11.998,5.373,11.998,12c0,6.625-5.371,11.998-11.998,11.998C57.168,65.639,47.143,65.639,43.945,65.639z"></path>
-        <path class="climacon_component climacon_component-fill climacon_component-fill_cloud" fill="#FFFFFF" d="M59.943,61.639c4.418,0,8-3.582,8-7.998c0-4.417-3.582-8-8-8c-1.601,0-3.082,0.481-4.334,1.291c-1.23-5.316-5.973-9.29-11.665-9.29c-6.626,0-11.998,5.372-11.998,11.999c0,6.626,5.372,11.998,11.998,11.998C47.562,61.639,56.924,61.639,59.943,61.639z"></path>
-      </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="547px" height="530px" viewBox="0 0 547 530" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="lightning" sketch:type="MSLayerGroup" transform="translate(18.000000, 8.000000)" fill="#53FFD2">
+            <path d="M512,134.833 C512,85.687 472,45.709 422.833,45.709 C420.437,45.709 418.062,45.792 415.687,45.979 C392.562,17.146 357.709,0 320,0 C282.312,0 247.438,17.146 224.312,45.979 C221.937,45.792 219.541,45.709 217.124,45.709 C168,45.709 128,85.688 128,134.833 C128,139.979 128.688,144.958 129.5,149.875 C128.958,150.583 128.312,151.229 127.792,151.958 C122.563,151.208 117.313,150.833 112,150.833 C50.25,150.833 0,201.083 0,262.833 C0,324.584 50.25,374.833 112,374.833 C125.688,374.833 139.084,372.334 151.709,367.5 C170.063,383.5 191.813,394.438 214.916,400.708 L192,416 L224,448 L192,512 L288,448 L256,416 L260.812,406.417 C297.562,405.292 332.562,391.688 360.291,367.5 C372.916,372.334 386.312,374.833 400,374.833 C461.75,374.833 512,324.584 512,262.833 C512,237.167 502.958,213.75 488.334,194.833 C502.916,178.958 512,158.021 512,134.833 L512,134.833 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+        </g>
     </g>
-  </svg>
+</svg>

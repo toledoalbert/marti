@@ -1,15 +1,16 @@
-<svg version="1.1" id="cloudDrizzleFill" class="climacon climacon_cloudDrizzleFill" viewBox="15 15 70 70"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
-    <g class="climacon_iconWrap climacon_iconWrap-cloudDrizzleFill">
-      <g class="climacon_wrapperComponent climacon_wrapperComponent-drizzle">
-        <path class="climacon_component climacon_component-stroke climacon_component-stroke_drizzle climacon_component-stroke_drizzle-left" d="M42.001,53.644c1.104,0,2,0.896,2,2v3.998c0,1.105-0.896,2-2,2c-1.105,0-2.001-0.895-2.001-2v-3.998C40,54.538,40.896,53.644,42.001,53.644z"></path>
-        <path class="climacon_component climacon_component-stroke climacon_component-stroke_drizzle climacon_component-stroke_drizzle-middle" d="M49.999,53.644c1.104,0,2,0.896,2,2v4c0,1.104-0.896,2-2,2s-1.998-0.896-1.998-2v-4C48.001,54.54,48.896,53.644,49.999,53.644z"></path>
-        <path class="climacon_component climacon_component-stroke climacon_component-stroke_drizzle climacon_component-stroke_drizzle-right" d="M57.999,53.644c1.104,0,2,0.896,2,2v3.998c0,1.105-0.896,2-2,2c-1.105,0-2-0.895-2-2v-3.998C55.999,54.538,56.894,53.644,57.999,53.644z"></path>
-      </g>
-
-      <g class="climacon_componentWrap climacon_componentWrap_cloud">
-        <path class="climacon_component climacon_component-stroke climacon_component-stroke_cloud" d="M43.945,65.639c-8.835,0-15.998-7.162-15.998-15.998c0-8.836,7.163-15.998,15.998-15.998c6.004,0,11.229,3.312,13.965,8.203c0.664-0.113,1.338-0.205,2.033-0.205c6.627,0,11.998,5.373,11.998,12c0,6.625-5.371,11.998-11.998,11.998C57.168,65.639,47.143,65.639,43.945,65.639z"></path>
-        <path class="climacon_component climacon_component-fill climacon_component-fill_cloud" fill="#FFFFFF" d="M59.943,61.639c4.418,0,8-3.582,8-7.998c0-4.417-3.582-8-8-8c-1.601,0-3.082,0.481-4.334,1.291c-1.23-5.316-5.973-9.29-11.665-9.29c-6.626,0-11.998,5.372-11.998,11.999c0,6.626,5.372,11.998,11.998,11.998C47.562,61.639,56.924,61.639,59.943,61.639z"></path>
-      </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="549px" height="531px" viewBox="0 0 549 531" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="rain" sketch:type="MSLayerGroup" transform="translate(10.000000, 10.000000)" fill="#DBDBDB">
+            <g id="Page-1" sketch:type="MSShapeGroup">
+                <g id="rain">
+                    <path d="M406.25,64 C400.855,64 395.522969,64.375 390.21125,65.125 C359.870469,24.417 311.987812,0 260,0 C208.012188,0 160.151875,24.417 129.78875,65.125 C124.477031,64.375 119.145,64 113.75,64 C51.0351562,64 0,114.25 0,176 C0,237.75 51.0351562,288 113.75,288 C127.651875,288 141.257188,285.5 154.079453,280.667 C183.488906,305.917 220.898438,320 260,320 C299.144219,320 336.510078,305.917 365.920547,280.667 C378.742813,285.5 392.348125,288 406.25,288 C468.964844,288 520,237.75 520,176 C520,114.25 468.964844,64 406.25,64 L406.25,64 L406.25,64 Z M228.515625,480 C228.515625,497.688 243.05125,512 261.015625,512 C278.98,512 293.515625,497.688 293.515625,480 C293.515625,462.312 261.015625,416 261.015625,416 C261.015625,416 228.515625,462.312 228.515625,480 L228.515625,480 L228.515625,480 Z M357.5,448 C357.5,465.688 372.035625,480 390,480 C407.964375,480 422.5,465.688 422.5,448 C422.5,430.312 390,384 390,384 C390,384 357.5,430.312 357.5,448 L357.5,448 L357.5,448 Z M97.5,384 C97.5,401.688 112.035625,416 130,416 C147.964375,416 162.5,401.688 162.5,384 C162.5,366.312 130,320 130,320 C130,320 97.5,366.312 97.5,384 L97.5,384 L97.5,384 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
     </g>
-  </svg>
+</svg>
