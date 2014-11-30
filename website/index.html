@@ -3,7 +3,7 @@
         
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Marti Search | Contextual Tweet Search</title>
+        <title>Marti | A Tweet Analyzer Suite</title>
         <meta name="description" content="Bubada restaurant website">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,63 +15,55 @@
     </head>
     <body>
 
-        <div id="navbar" class="row">
+        <div class="container">
 
-            <div class="container nav">
-                
-                <div class="col-md-6" id="menu">
-                    
-                    <!-- <p class="logo navItem">Marti Search</p> -->
-                    <img class="navItem logo" src="img/SearchLogo.png" alt="">
-
+            <div class="row search">
+                <div class="col-md-12">
+                    <img src="img/MartiLogo.png" class="mainLogo">
                 </div>
 
-                <div class="col-md-6" id="location">
-
-                    <p class="text-right navItem"><a href="#">ABOUT</a></p>
-
-                </div>
+                <p class="martiMainName text-center">Marti</p>
 
             </div>
 
-        </div>
+            
 
-        <div class="container">
+            <div class="row">
+
+                <p class="martiDesc">Marti is a suite of software products for both developers and end users. Marti provides Tweet analyzing functionality to its users. Marti Search is an advanced search product for Twitter while Marti Weather provides weather information
+                    from Twitter users for the continental United States.
+
+                    In addition to our end user products, Marti API and Marti JavaScript SDK allow third party developers to integrate Marti
+                    functionality in their applications.
+                </p>
+
+            </div>
             
             <div class="row search">
-
-                <h2>API Calls</h2>
                 
-                <div class="call">
+                <div class="call col-md-3">
 
-                    <br>
-                    <h3>Search for Keywords and Location</h3>
-                    <p class="function">/bagofwords/geocodes</p>
-                    <p class="description">
-                        This API call allows you to pass in two parameters, a set of words you want to search
-                        for in a Tweet, as well as the geocode of a specific location you want to retrieve the Tweets from.
-                        <br>
-                        The bag of words should be inserted with a + as the delimeter.
-                        <br>
-                    </p>
-                    <h4>Example:</h4>
-                    <p class="function">http://martiapi.herokuapp.com/hampton+university/33.448260,-112.075774,100mi</p>
+                    <p class="martiName martiSearch text-center">Marti <span class="productName">Search</span></p>
+
                 </div>
 
-                <div class="call">
+                <div class="call col-md-3">
 
-                    <br>
-                    <h3>Search for Keywords</h3>
-                    <p class="function">/bagofwords</p>
-                    <p class="description">
-                        This API call allows you to pass in one parameters, a set of words you want to search
-                        for in a Tweet.
-                        <br>
-                        The bag of words should be inserted with a + as the delimeter.
-                        <br>
-                    </p>
-                    <h4>Example:</h4>
-                    <p class="function">http://martiapi.herokuapp.com/hampton+university</p>
+                    <p class="martiName martiAPI text-center">Marti <span class="productName">API</span></p>
+
+                </div>
+
+                <div class="call col-md-3">
+
+                    <p class="martiName martiSDK text-center">Marti <span class="productName">SDK</span></p>
+
+                </div>
+
+
+                <div class="call col-md-3">
+
+                    <p class="martiName martiWeather text-center">Marti <span class="productName">Weather</span></p>
+
                 </div>
 
             </div>

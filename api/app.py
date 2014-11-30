@@ -16,17 +16,29 @@ def Hello():
    return "Hello Marti"
 
 
-@app.route('/<bagofwords>', defaults={'geocodes': None})
-@app.route('/<bagofwords>/<geocodes>')
+@app.route('/getTweets/<bagofwords>', defaults={'geocodes': None})
+@app.route('/getTweets/<bagofwords>/<geocodes>')
 def getTweets(bagofwords, geocodes):
 
     wordsArray=bagofwords.split('+')
     bagofwords=bagofwords.replace('+',' OR ' )
 
+    print bagofwords
+
     #gecode Option 
     results = tweepy.Cursor(api.search, q=bagofwords, lang="en", result_type="recent", geocode=geocodes).items(100)
     
     tweets = []
+
+    allWords = []
+
+    cnt = {}
+
+    for word in wordsArray:
+        cnt[word] = 0
+
+    maxWord = ""
+    maxNum = 0
 
     for tweet in results:
         tweets.append(
@@ -46,9 +58,22 @@ def getTweets(bagofwords, geocodes):
                 }
             )
 
+        words = tweet.text.split(' ')
 
+        for word in words:
+            allWords.append(word)
 
-    response = jsonify({"data":tweets})
+    for word in allWords:
+        if word in cnt.keys():
+            cnt[word] += 1
+
+    for word in wordsArray:
+        if cnt[word] > maxNum:
+            maxWord = word
+            maxNum = cnt[word]
+        
+
+    response = jsonify({"data":tweets, "maxWord":maxWord, "wordCount":cnt})
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
