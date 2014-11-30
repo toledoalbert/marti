@@ -48,7 +48,7 @@ var searchTweets = function(keywords) {
 
   $.ajax({
       // url: "http://martiapi.herokuapp.com/tweets",
-      url: "http://martiapi.herokuapp.com/" + words,
+      url: "http://martiapi.herokuapp.com/getTweets/" + words,
    
       // the name of the callback parameter, as specified by the YQL service
       json: "callback",
@@ -68,6 +68,7 @@ var searchTweets = function(keywords) {
                   theme: 'light', align: 'center'
                 }).then( function(el) {
                   document.getElementById("spinner").style.display = "none";
+                  document.getElementById("resultsHeader").style.display = "block";
                 });
             }, 5000);
           });
@@ -81,7 +82,7 @@ var searchTweetsWithLocation = function(keywords, location) {
 
   $.ajax({
       // url: "http://martiapi.herokuapp.com/tweets",
-      url: "http://martiapi.herokuapp.com/" + words + "/" + geo_codes[location],
+      url: "http://martiapi.herokuapp.com/getTweets/" + words + "/" + geo_codes[location],
    
       // the name of the callback parameter, as specified by the YQL service
       json: "callback",

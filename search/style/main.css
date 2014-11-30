@@ -29,6 +29,10 @@ img.navItem.logo {
 	margin: 100px 5px 5px 5px;
 }
 
+.row.switch {
+  margin: 40px 5px 40px 25px;
+}
+
 #searchbox {
 	/*padding-bottom: 50px;*/
 }
@@ -41,6 +45,7 @@ input.searchbox {
 	font-size: 20px;
 	font-weight: lighter;
 	color: rgb(255, 187, 0);
+  transition: color 0.5s ease;
 }
 
 button#search {
@@ -51,12 +56,44 @@ button#search {
 	color: whitesmoke;
 	font-weight: lighter;
 	font-size: 25px;
+  transition: background-color 0.5s ease;
 }
 
 button#search:hover {
 	background: rgb(247, 192, 3);
 }
 
+p.toggleLabel {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+p.toggleLabel.regex {
+  color: #4AAAE1;
+  transition: color 0.5s ease;
+  transition: font-weight 0.5s ease;
+}
+
+p.toggleLabel.keyword {
+  color: #FFC800;
+  transition: color 0.5s ease;
+  transition: font-weight 0.5s ease;
+}
+
+.col-md-1 {
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 7%;
+}
+
+p#resultsHeader {
+  margin-bottom: 80px;
+  display: none;
+  text-align: center;
+  color: #C6C6C6;
+  font-weight: bold;
+  font-stretch: condensed;
+}
 
 
 
@@ -70,26 +107,37 @@ button#search:hover {
       width: 70px;
       height: 70px;
       position: relative;
-    }
-    .circle {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-    .circle:before {
-      content: '';
-      display: block;
-      margin: 0 auto;
-      width: 20%;
-      height: 20%;
-      background-color: #FFC500;
-      
-      border-radius: 100%;
-      -webkit-animation: bouncedelay 1.2s infinite ease-in-out both;
-      animation: bouncedelay 1.2s infinite ease-in-out both;
-    }
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.spinner .circle:before {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 20%;
+  height: 20%;
+  background-color: #FFC500;
+  
+  border-radius: 100%;
+  -webkit-animation: bouncedelay 1.2s infinite ease-in-out both;
+  animation: bouncedelay 1.2s infinite ease-in-out both;
+}
+
+.spinner.blue .circle:before {
+  background-color: #4AAAE1;
+}
+
+.spinner.yellow .circle:before {
+  background-color: #FFC500;
+}
+
     .circle2  { -webkit-transform: rotate(30deg);  transform: rotate(30deg)  }
     .circle3  { -webkit-transform: rotate(60deg);  transform: rotate(60deg)  }
     .circle4  { -webkit-transform: rotate(90deg);  transform: rotate(90deg)  }
@@ -125,4 +173,53 @@ button#search:hover {
         -webkit-transform: scale(1.0);
         transform: scale(1.0);
       }
+    }
+
+    .onoffswitch {
+    position: relative; width: 178px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    }
+    .onoffswitch-checkbox {
+        display: none;
+    }
+    .onoffswitch-label {
+        display: block; overflow: hidden; cursor: pointer;
+        border: 2px solid #999999; border-radius: 12px;
+    }
+    .onoffswitch-inner {
+        display: block; width: 200%; margin-left: -100%;
+        -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+        -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+    }
+    .onoffswitch-inner:before, .onoffswitch-inner:after {
+        display: block; float: left; width: 50%; height: 32px; padding: 0; line-height: 32px;
+        font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+        -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    }
+    .onoffswitch-inner:before {
+        content: "Regular Expression";
+        padding-left: 13px;
+        background-color: #34A7C1; color: #FFFFFF;
+        font-weight: lighter;
+    }
+    .onoffswitch-inner:after {
+        content: "Keyword";
+        padding-right: 13px;
+        background-color: #FFB700; color: #FFFFFF;
+        text-align: right;
+        font-weight: lighter;
+    }
+    .onoffswitch-switch {
+        display: block; width: 19px; margin: 6.5px;
+        background: #FFFFFF;
+        border: 2px solid #999999; border-radius: 12px;
+        position: absolute; top: 0; bottom: 0; right: 142px;
+        -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+        -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+        margin-left: 0;
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+        right: 0px; 
     }

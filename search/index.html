@@ -11,6 +11,7 @@
 
         <link rel="stylesheet" href="style/bootstrap.min.css">
         <link rel="stylesheet" href="style/main.css">
+        <link rel="stylesheet" href="style/toggle.css">
 
     </head>
     <body>
@@ -49,11 +50,30 @@
                 </div>
 
             </div>
-            
-            <div class="row search">
-                
-                <div id="results"></div>
 
+            <div class="row switch">
+                
+                <div id="switch">
+<!--                     <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                        <label class="onoffswitch-label" for="myonoffswitch">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div> -->
+                    <div class="col-md-1"><p class="toggleLabel regex" id="regex">Regex</p></div>
+                    <div class="switch col-md-1">
+                        <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" name="toggle" checked="false">
+                        <label for="cmn-toggle-4"></label>
+                    </div>
+                    <div class="col-md-1"><p class="toggleLabel keyword" id="keyword">Keyword</p></div>
+                </div>
+
+            </div>
+
+            <div class="row search">
+                <p id="resultsHeader">RESULTS</p>
+                <div id="results"></div>
             </div>
 
         </div>
@@ -61,5 +81,6 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <script src="js/app.js"></script>
+        <script src="js/ui.js"></script>
     </body>
 </html>
