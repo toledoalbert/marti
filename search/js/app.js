@@ -17,8 +17,13 @@ var searchButtonClicked = function () {
   searchFieldValue = searchFieldValue + "";
   var wordsToSearch = searchFieldValue.split(' ');
   // var wordsToSearch = ["cold", "sunny", "funny"];
-  searchTweets(wordsToSearch);
-  searchTweetsWithLocation(wordsToSearch, "VA");
+  if($('input[name=toggle]').is(':checked')) {
+    searchTweets(wordsToSearch);
+  }
+  else {
+    matchTweets(searchFieldValue);
+  }
+  // searchTweetsWithLocation(wordsToSearch, "VA");
 };
 
 
@@ -29,6 +34,43 @@ var searchTweets = function(keywords) {
   $.ajax({
       // url: "http://martiapi.herokuapp.com/tweets",
       url: "http://martiapi.herokuapp.com/getTweets/" + words,
+   
+      // the name of the callback parameter, as specified by the YQL service
+      json: "callback",
+   
+      // tell jQuery we're expecting JSONP
+      dataType: "json",
+   
+      // work with the response
+      success: function( response ) {
+          $.each( response.data, function( key, val ) {
+            setTimeout(function () {
+              console.log("in the loop", key, val.id);
+              twttr.widgets.createTweetEmbed(
+              val.id,
+                document.getElementById('results'),
+                {
+                  theme: 'light', align: 'center'
+                }).then( function(el) {
+                  // document.getElementById("spinner").style.display = "none";
+                  $("#spinner").hide();
+                  document.getElementById("resultsHeader").style.display = "block";
+                  $("#results").show();
+                  $("#resultsHeader").show();
+                });
+            }, 5000);
+          });
+      }
+  });
+};
+
+var matchTweets = function(regex) {
+  console.log("Matching...");
+  // var words = concatWords(keywords);
+
+  $.ajax({
+      // url: "http://martiapi.herokuapp.com/tweets",
+      url: "http://martiapi.herokuapp.com/matchTweets/" + regex,
    
       // the name of the callback parameter, as specified by the YQL service
       json: "callback",

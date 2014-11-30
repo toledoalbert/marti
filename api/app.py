@@ -3,7 +3,7 @@ import flask
 from flask import jsonify
 import tweepy
 import re
-import tweetstream
+# import tweetstream
 # from flask.ext.jsonpify import jsonify
 
 app = flask.Flask(__name__)
