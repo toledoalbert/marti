@@ -2,6 +2,7 @@ from flask import *
 import flask
 from flask import jsonify
 import tweepy
+import re
 # from flask.ext.jsonpify import jsonify
 
 app = flask.Flask(__name__)
@@ -77,6 +78,9 @@ def getTweets(bagofwords, geocodes):
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
+@app.route('/matchTweets/<regex>')
+def matchTweets(regex):
+    return 0
 
 if __name__ == '__main__':
     app.run(debug=True)
