@@ -3,6 +3,7 @@ import flask
 from flask import jsonify
 import tweepy
 import re
+import tweetstream
 # from flask.ext.jsonpify import jsonify
 
 app = flask.Flask(__name__)
@@ -80,7 +81,22 @@ def getTweets(bagofwords, geocodes):
 
 @app.route('/matchTweets/<regex>')
 def matchTweets(regex):
-    return 0
+    results = tweepy.Cursor(api.search, q="hello", lang="en", result_type="recent", geocode=None).items(1000)
+
+    tweets = []
+    # regex = 'be'
+    regex = regex.replace("\"", "")
+    exp = re.compile(r'%s' % regex)
+
+    for tweet in results:
+        match = exp.match(tweet.text)
+        if match:
+            tweets.append({'text':tweet.text, 'id':tweet.id})
+
+    response = jsonify({"data":tweets})
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
 
 if __name__ == '__main__':
     app.run(debug=True)
