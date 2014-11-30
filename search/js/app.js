@@ -3,42 +3,22 @@ twttr.ready(function (twttr) {
   var searchbutton = document.getElementById("search");
   searchbutton.onclick = searchButtonClicked;
 
-  // $.ajax({
-
-  //     // url: "http://martiapi.herokuapp.com/tweets",
-  //     url: "http://martiapi.herokuapp.com/sunny+cloudy+cold/42.1497,-74.9384,500mi",
-   
-  //     // the name of the callback parameter, as specified by the YQL service
-  //     json: "callback",
-   
-  //     // tell jQuery we're expecting JSONP
-  //     dataType: "json",
-   
-  //     // work with the response
-  //     success: function( response ) {
-  //         $.each( response.data, function( key, val ) {
-  //             console.log("in the loop", key, val.id);
-  //             twttr.widgets.createTweetEmbed(
-  //               val.id,
-  //                 document.getElementById('results'),
-  //                 {
-  //                   theme: 'light', align: 'center'
-  //                 });
-  //         });
-  //     }
-  // });
-
 });
 
 var searchButtonClicked = function () {
   var results = document.getElementById("results");
-  results.innerHTML = "<div id='spinner' class='spinner'> <div class='circle1 circle'></div> <div class='circle2 circle'></div><div class='circle3 circle'></div><div class='circle4 circle'></div><div class='circle5 circle'></div><div class='circle6 circle'></div><div class='circle7 circle'></div><div class='circle8 circle'></div><div class='circle9 circle'></div><div class='circle10 circle'></div><div class='circle11 circle'></div><div class='circle12 circle'></div></div>";
+  results.innerHTML = "";
+  $("#spinner").show();
+  $("#results").innerHTML = "";
+  $("#results").hide();
+  $("#resultsHeader").hide();
   var searchFieldValue = document.getElementById("searchField").value;
   console.log("searchFieldValue: " + searchFieldValue);
   searchFieldValue = searchFieldValue + "";
   var wordsToSearch = searchFieldValue.split(' ');
   // var wordsToSearch = ["cold", "sunny", "funny"];
   searchTweets(wordsToSearch);
+  searchTweetsWithLocation(wordsToSearch, "VA");
 };
 
 
@@ -67,8 +47,11 @@ var searchTweets = function(keywords) {
                 {
                   theme: 'light', align: 'center'
                 }).then( function(el) {
-                  document.getElementById("spinner").style.display = "none";
+                  // document.getElementById("spinner").style.display = "none";
+                  $("#spinner").hide();
                   document.getElementById("resultsHeader").style.display = "block";
+                  $("#results").show();
+                  $("#resultsHeader").show();
                 });
             }, 5000);
           });

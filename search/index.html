@@ -22,14 +22,14 @@
                 
                 <div class="col-md-6" id="menu">
                     
-                    <!-- <p class="logo navItem">Marti Search</p> -->
-                    <img class="navItem logo" src="img/SearchLogo.png" alt="">
+                    <p class="logo navItem keyword"><span id="martiLogo">Martı  </span><span id="searchLogo">Search</span></p>
+                    <!-- <img class="navItem logo" src="img/SearchLogo.png" alt=""> -->
 
                 </div>
 
                 <div class="col-md-6" id="location">
 
-                    <p class="text-right navItem"><a href="#">ABOUT</a></p>
+                    <!-- <p class="text-right navItem"><a href="#">ABOUT</a></p> -->
 
                 </div>
 
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="col-md-3" id="searchbutton">
-                    <button id="search">Search</button>
+                    <button class="keyword" id="search">Search</button>
                 </div>
 
             </div>
@@ -54,13 +54,7 @@
             <div class="row switch">
                 
                 <div id="switch">
-<!--                     <div class="onoffswitch">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
-                        <label class="onoffswitch-label" for="myonoffswitch">
-                            <span class="onoffswitch-inner"></span>
-                            <span class="onoffswitch-switch"></span>
-                        </label>
-                    </div> -->
+
                     <div class="col-md-1"><p class="toggleLabel regex" id="regex">Regex</p></div>
                     <div class="switch col-md-1">
                         <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" name="toggle" checked="false">
@@ -72,8 +66,13 @@
             </div>
 
             <div class="row search">
+
+                <div id='spinner' class='spinner'> <div class='circle1 circle'></div> <div class='circle2 circle'></div><div class='circle3 circle'></div><div class='circle4 circle'></div><div class='circle5 circle'></div><div class='circle6 circle'></div><div class='circle7 circle'></div><div class='circle8 circle'></div><div class='circle9 circle'></div><div class='circle10 circle'></div><div class='circle11 circle'></div><div class='circle12 circle'></div></div>
+
                 <p id="resultsHeader">RESULTS</p>
-                <div id="results"></div>
+                <div id="results">
+                    
+                </div>
             </div>
 
         </div>

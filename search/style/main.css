@@ -12,6 +12,27 @@ div#navbar {
 	margin: 0;
 }
 
+p.logo {
+  font-size: 25px;
+  transition: color 0.5s ease;
+}
+
+#martiLogo {
+  font-weight: lighter;
+}
+
+#searchLogo {
+  font-weight: bold;
+}
+
+p.logo.keyword {
+  color: rgb(255, 200, 0);
+}
+
+p.logo.regex {
+  color: #4AAAE1;
+}
+
 p.navItem a {
 	color: #FFC500;
 	text-decoration: none;
@@ -46,26 +67,51 @@ input.searchbox {
 	font-weight: lighter;
 	color: rgb(255, 187, 0);
   transition: color 0.5s ease;
+  box-shadow: 1px 1px 3px #BDBDBD;
+  background-color: white;
+  padding: 10px;
+}
+
+input#searchField:focus {
+  outline: none;
 }
 
 button#search {
 	width: 100%;
 	height: 50px;
-	background: rgb(255, 197, 0);
+	/*background: rgb(255, 197, 0);*/
 	border: none;
 	color: whitesmoke;
 	font-weight: lighter;
 	font-size: 25px;
   transition: background-color 0.5s ease;
+  box-shadow: #BDBDBD 2px 2px 4px;
 }
 
-button#search:hover {
-	background: rgb(247, 192, 3);
+button#search:focus {
+  outline: none;
+}
+
+button.keyword {
+  background-color: rgb(255, 200, 0);
+}
+
+button.regex {
+  background-color: #4AAAE1;
+}
+
+button.keyword:hover {
+	background: rgb(240, 189, 2);
+}
+
+button.regex:hover {
+  background-color: #3B97CC;
 }
 
 p.toggleLabel {
   font-size: 20px;
   font-weight: lighter;
+  transition: color 0.5s ease;
 }
 
 p.toggleLabel.regex {
