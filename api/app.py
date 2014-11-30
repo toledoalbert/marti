@@ -28,7 +28,7 @@ def getTweets(bagofwords, geocodes):
     print bagofwords
 
     #gecode Option 
-    results = tweepy.Cursor(api.search, q=bagofwords, lang="en", result_type="recent", geocode=geocodes).items(100)
+    results = tweepy.Cursor(api.search, q=bagofwords, lang="en", result_type="recent", geocode=geocodes).items(1000)
     
     tweets = []
 
