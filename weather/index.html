@@ -95,36 +95,42 @@
           var tipText; 
           var coordinates = projection([locationData.coordinates[1], locationData.coordinates[0]]);
 
+              var imgs = map.selectAll("body").data(coordinates);
+              imgs.enter()
+              .append("svg:image")
+              .attr("xlink:href", '' + 'img/spinner.gif')
+              .attr("id", locationData.city)
+              .attr("x", coordinates[0] - 13)
+              .attr("y", coordinates[1] - 13)
+              .attr("width", "20px")
+              .attr("height", "20px")
 
-          $.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + locationData.coordinates[0] + '&lon=' + locationData.coordinates[1] + '&units=imperial&callback=?', function(data) {
-            tipText = "<h2 style='color: #FFF; font-weight: 100;'>" + locationData.city + "</h2><h4 style='color: #FFF; font-weight: 100;'>" + data.weather[0].description.toString().toLowerCase() + "</h4><h3 style='font-size: 80px; font-family: Helvetica Neue, Segoe UI Light, Arial; font-weight: 100; color: #FFF; line-height: 80px;'>" + data.main.temp.toString().split('.')[0] + "°F</h3>";
-            addWeather(coordinates, tipText, locationData.city, data)
+
+          $.getJSON('http://martiapi.herokuapp.com/getTweets/sunny+cloudy+snow+rain+thunder/' + locationData.coordinates[0] + ',' + locationData.coordinates[1] + ',500mi', function(data) {
+            addWeather(coordinates, locationData.city, data);
+            $("#" + locationData.city).remove();
           });
 
       };
 
-      function addWeather(coordinates, tipText, city, data) {
-          var suggested = data.weather[0].icon;
-          console.log(city + data.weather[0].icon);
-          var icon
+      function addWeather(coordinates, city, data) {
+          var word = data.maxWord;
+          console.log(city + data.maxWord);
+          var icon;
 
           // This is ugly, but I'm lazy
-          if(suggested == "01d") {
+          if(word == "sunny") {
             icon = "img/sunny.svg";
-          }else if(suggested == "01n") {
-            icon = "img/moon.svg";
-          }else if(suggested == "02d" || suggested == "03d" || suggested == "04d") {
+          }else if(word == "cloudy") {
             icon = "img/cloud.svg";
-          }else if(suggested == "02n" || suggested == "03n" || suggested == "04n") {
-            icon = "img/cloud.svg";
-          }else if(suggested == "09d" || suggested == "09n" || suggested == "50d" || suggested == "50n") {
-            icon = "img/rain.svg";
-          }else if(suggested == "10d" || suggested == "10n") {
-            icon = "img/rain.svg";
-          }else if(suggested == "11d" || suggested == "11n") {
-            icon = "img/lightning.svg";
-          }else if(suggested == "13d" || suggested == "13n") {
+          }else if(word == "snow") {
             icon = "img/snow.svg";
+          }else if(word == "rain") {
+            icon = "img/rain.svg";
+          }else if(word == "thunder") {
+            icon = "img/lightning.svg";
+          } else {
+            icon = "img/sunny.svg";
           }
 
           var imgs = map.selectAll("body").data(coordinates);
@@ -134,16 +140,16 @@
               .attr("x", coordinates[0] - 13)
               .attr("y", coordinates[1] - 13)
               .attr("width", "20px")
-              .attr("height", "20px")
+              .attr("height", "20px");
 
-          var imgs = map.selectAll("body").data(coordinates);
-              imgs.enter()
-              .append("object")
-              .attr("data", '' + icon)
-              .attr("x", coordinates[0] - 13)
-              .attr("y", coordinates[1] - 13)
-              .attr("width", "20px")
-              .attr("height", "20px")
+          // var imgs = map.selectAll("body").data(coordinates);
+          //     imgs.enter()
+          //     .append("object")
+          //     .attr("data", '' + icon)
+          //     .attr("x", coordinates[0] - 13)
+          //     .attr("y", coordinates[1] - 13)
+          //     .attr("width", "20px")
+          //     .attr("height", "20px")
 
                   // d3.select("body")
                   // .append("object")
@@ -153,17 +159,17 @@
                   // .attr("type", "image/svg+xml");
 
           // This is a hack for the toolips because hover of the svg icons isn't working
-          map.append('svg:rect')
-              .attr("class", "Rects")
-              // add an id such that each circle is mapped to a number, remove earliest circles once 10 exist on screen
-              .attr("id", city)
-              .attr('width', 20)
-              .attr('height', 20)
-              .style("stroke", "rgba(48,196,201,0)")
-              .style("stroke-width", 1)
-              .style("fill", "rgba(48,196,201,0)")
-              .attr('x', coordinates[0] - 13)
-              .attr('y', coordinates[1] - 13)
+          // map.append('svg:rect')
+          //     .attr("class", "Rects")
+          //     // add an id such that each circle is mapped to a number, remove earliest circles once 10 exist on screen
+          //     .attr("id", city)
+          //     .attr('width', 20)
+          //     .attr('height', 20)
+          //     .style("stroke", "rgba(48,196,201,0)")
+          //     .style("stroke-width", 1)
+          //     .style("fill", "rgba(48,196,201,0)")
+          //     .attr('x', coordinates[0] - 13)
+          //     .attr('y', coordinates[1] - 13)
 
 
           // addTipsy(tipText, city);
@@ -193,184 +199,196 @@
             coordinates: ['33.74718','-84.389817'],
             city: 'atlanta'
           });
-          mapCity({
-            coordinates: ['42.651445','-73.755254'],
-            city: 'albany'
-          });
+          // mapCity({
+          //   coordinates: ['42.651445','-73.755254'],
+          //   city: 'albany'
+          // });
           mapCity({
             coordinates: ['35.785510','-78.642669'],
             city: 'raleigh'
           });
-          mapCity({
-            coordinates: ['46.805372','-100.779334'],
-            city: 'bismark'
-          });
+          // mapCity({
+          //   coordinates: ['46.805372','-100.779334'],
+          //   city: 'bismark'
+          // });
           mapCity({
             coordinates: ['38.8044','-77.012208'],
             city: 'dc'
           });
-          mapCity({
-            coordinates: ['32.380120','-86.300629'],
-            city: 'montgomery'
-          });
-          mapCity({
-            coordinates: ['58.299740','-134.406794'],
-            city: 'juneau'
-          });
-         mapCity({
-            coordinates: ['33.448260','-112.075774'],
-            city: 'phoenix'
-          });
-         mapCity({
-            coordinates: ['34.748655','-92.274494'],
-            city: 'little rock'
-          });
+         //  mapCity({
+         //    coordinates: ['32.380120','-86.300629'],
+         //    city: 'montgomery'
+         //  });
+         //  mapCity({
+         //    coordinates: ['58.299740','-134.406794'],
+         //    city: 'juneau'
+         //  });
+         // mapCity({
+         //    coordinates: ['33.448260','-112.075774'],
+         //    city: 'phoenix'
+         //  });
+         // mapCity({
+         //    coordinates: ['34.748655','-92.274494'],
+         //    city: 'little rock'
+         //  });
          mapCity({
             coordinates: ['38.579065','-121.491014'],
             city: 'sacramento'
-          });     mapCity({
-            coordinates: ['39.740010','-104.992259'],
-            city: 'denver'
-          });     mapCity({
-            coordinates: ['41.763325','-72.674069'],
-            city: 'hartford'
-          });     mapCity({
-            coordinates: ['39.158035','-75.524734'],
-            city: 'dover'
-          });     mapCity({
-            coordinates: ['30.439775','-84.280649'],
-            city: 'tallahassee'
-          });     mapCity({
-            coordinates: ['21.304770','-157.857614'],
-            city: 'honolulu'
-          });     mapCity({
-            coordinates: ['43.606980','-116.193409'],
-            city: 'boise'
-          });     mapCity({
-            coordinates: ['39.801055','-89.643604'],
-            city: 'springfield'
-          });     mapCity({
-            coordinates: ['39.766910','-86.149964'],
-            city: 'indianapolis'
-          });     mapCity({
-            coordinates: ['41.589790','-93.615659'],
-            city: 'des moines'
-          });     mapCity({
-            coordinates: ['39.049285','-95.671184'],
-            city: 'topeka'
           });     
-    	mapCity({
-            coordinates: ['38.195070','-84.878694'],
-            city: 'frankfort'
-          });    
-    	mapCity({
-            coordinates: ['30.443345','-91.186994'],
-            city: 'baton rouge'
-          });      
-    	mapCity({
-            coordinates: ['44.318036','-69.776218'],
-            city: 'augusta'
-          });     mapCity({
+         // mapCity({
+         //    coordinates: ['39.740010','-104.992259'],
+         //    city: 'denver'
+         //  });     
+         // mapCity({
+         //    coordinates: ['41.763325','-72.674069'],
+         //    city: 'hartford'
+         //  });     
+     //      mapCity({
+     //        coordinates: ['39.158035','-75.524734'],
+     //        city: 'dover'
+     //      });     
+     //      mapCity({
+     //        coordinates: ['30.439775','-84.280649'],
+     //        city: 'tallahassee'
+     //      });     
+     //      mapCity({
+     //        coordinates: ['21.304770','-157.857614'],
+     //        city: 'honolulu'
+     //      });     
+     //      mapCity({
+     //        coordinates: ['43.606980','-116.193409'],
+     //        city: 'boise'
+     //      });     
+     //      mapCity({
+     //        coordinates: ['39.801055','-89.643604'],
+     //        city: 'springfield'
+     //      });     
+     //      mapCity({
+     //        coordinates: ['39.766910','-86.149964'],
+     //        city: 'indianapolis'
+     //      });     
+     //      mapCity({
+     //        coordinates: ['41.589790','-93.615659'],
+     //        city: 'des moines'
+     //      });     mapCity({
+     //        coordinates: ['39.049285','-95.671184'],
+     //        city: 'topeka'
+     //      });     
+    	// mapCity({
+     //        coordinates: ['38.195070','-84.878694'],
+     //        city: 'frankfort'
+     //      });    
+    	// mapCity({
+     //        coordinates: ['30.443345','-91.186994'],
+     //        city: 'baton rouge'
+     //      });      
+    	// mapCity({
+     //        coordinates: ['44.318036','-69.776218'],
+     //        city: 'augusta'
+     //      });     
+          mapCity({
             coordinates: ['38.976700','-76.489934'],
             city: 'annapolis'
-          });     mapCity({
+          });     
+          mapCity({
             coordinates: ['42.358635','-71.056699'],
             city: 'boston'
-          });     mapCity({
-            coordinates: ['42.731940','-84.552249'],
-            city: 'lansing'
-          });     mapCity({
-            coordinates: ['44.943829','-93.093326'],
-            city: 'saint paul'
-          });     mapCity({
-            coordinates: ['32.298690','-90.180489'],
-            city: 'jackson'
-          });     mapCity({
-            coordinates: ['38.577515','-92.177839'],
-            city: 'jefferson city'
-          });     mapCity({
-            coordinates: ['46.589760','-112.021202'],
-            city: 'helana'
-          });     mapCity({
-            coordinates: ['40.813620','-96.707739'],
-            city: 'lincoln'
-          });     mapCity({
-            coordinates: ['39.164885','-119.766999'],
-            city: 'carson city'
-          });     mapCity({
-            coordinates: ['43.207250','-71.536604'],
-            city: 'concord'
-          });     mapCity({
-            coordinates: ['40.217875','-74.759404'],
-            city: 'trenton'
-          });     mapCity({
-            coordinates: ['35.691543','-105.937406'],
-            city: 'santa fe'
-          });
-          mapCity({
-            coordinates: ['39.961960','-83.002984'],
-            city: 'columbus'
           });     
-    	 mapCity({
-            coordinates: ['35.472015','-97.520354'],
-            city: 'oklahoma'
-          });
-          mapCity({
-            coordinates: ['44.933260','-123.043814'],
-            city: 'salem'
-          });
-          mapCity({
-            coordinates: ['40.259865','-76.882230'],
-            city: 'harrisburg'
-          });
-          mapCity({
-            coordinates: ['41.823875','-71.411994'],
-            city: 'providence'
-          });
+          // mapCity({
+          //   coordinates: ['42.731940','-84.552249'],
+          //   city: 'lansing'
+          // });     mapCity({
+          //   coordinates: ['44.943829','-93.093326'],
+          //   city: 'saint paul'
+          // });     mapCity({
+          //   coordinates: ['32.298690','-90.180489'],
+          //   city: 'jackson'
+          // });     mapCity({
+          //   coordinates: ['38.577515','-92.177839'],
+          //   city: 'jefferson city'
+          // });     mapCity({
+          //   coordinates: ['46.589760','-112.021202'],
+          //   city: 'helana'
+          // });     mapCity({
+          //   coordinates: ['40.813620','-96.707739'],
+          //   city: 'lincoln'
+          // });     mapCity({
+          //   coordinates: ['39.164885','-119.766999'],
+          //   city: 'carson city'
+          // });     mapCity({
+          //   coordinates: ['43.207250','-71.536604'],
+          //   city: 'concord'
+          // });     mapCity({
+          //   coordinates: ['40.217875','-74.759404'],
+          //   city: 'trenton'
+          // });     mapCity({
+          //   coordinates: ['35.691543','-105.937406'],
+          //   city: 'santa fe'
+          // });
+      //     mapCity({
+      //       coordinates: ['39.961960','-83.002984'],
+      //       city: 'columbus'
+      //     });     
+    	 // mapCity({
+      //       coordinates: ['35.472015','-97.520354'],
+      //       city: 'oklahoma'
+      //     });
+          // mapCity({
+          //   coordinates: ['44.933260','-123.043814'],
+          //   city: 'salem'
+          // });
+          // mapCity({
+          //   coordinates: ['40.259865','-76.882230'],
+          //   city: 'harrisburg'
+          // });
+          // mapCity({
+          //   coordinates: ['41.823875','-71.411994'],
+          //   city: 'providence'
+          // });
           mapCity({
             coordinates: ['33.998550','-81.045249'],
             city: 'columbia'
           });
-          mapCity({
-            coordinates: ['44.368924','-100.350158'],
-            city: 'pierre'
-          });
-          mapCity({
-            coordinates: ['36.167783','-86.778365'],
-            city: 'nashville'
-          });
-          mapCity({
-            coordinates: ['40.759505','-111.888229'],
-            city: 'salt lake city'
-          });
+          // mapCity({
+          //   coordinates: ['44.368924','-100.350158'],
+          //   city: 'pierre'
+          // });
+          // mapCity({
+          //   coordinates: ['36.167783','-86.778365'],
+          //   city: 'nashville'
+          // });
+          // mapCity({
+          //   coordinates: ['40.759505','-111.888229'],
+          //   city: 'salt lake city'
+          // });
           mapCity({
             coordinates: ['30.267605','-97.742984'],
             city: 'austin'
           });
-          mapCity({
-            coordinates: ['44.260299','-72.576264'],
-            city: 'montpelier'
-          });
+          // mapCity({
+          //   coordinates: ['44.260299','-72.576264'],
+          //   city: 'montpelier'
+          // });
           mapCity({
             coordinates: ['37.540700','-77.433654'],
             city: 'richmond'
           });
-         mapCity({
-            coordinates: ['47.039231','-122.891366'],
-            city: 'olympia'
-          });
-         mapCity({
-            coordinates: ['38.350195','-81.638989'],
-            city: 'charleston'
-          });
-         mapCity({
-            coordinates: ['43.072950','-89.386694'],
-            city: 'madison'
-          });
-         mapCity({
-            coordinates: ['41.134815','-104.821544'],
-            city: 'cheyenne'
-          });
+         // mapCity({
+         //    coordinates: ['47.039231','-122.891366'],
+         //    city: 'olympia'
+         //  });
+         // mapCity({
+         //    coordinates: ['38.350195','-81.638989'],
+         //    city: 'charleston'
+         //  });
+         // mapCity({
+         //    coordinates: ['43.072950','-89.386694'],
+         //    city: 'madison'
+         //  });
+         // mapCity({
+         //    coordinates: ['41.134815','-104.821544'],
+         //    city: 'cheyenne'
+         //  });
           fired++;
         }
       });
