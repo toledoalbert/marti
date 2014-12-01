@@ -76,6 +76,24 @@ input#searchField:focus {
   outline: none;
 }
 
+input#searchField.regex {
+  color: #4AAAE1;
+}
+
+input#searchField.keyword {
+  color: #FFC800;
+}
+
+input#searchField.regex::selection {
+  color: #fff;
+  background-color: #4AAAE1; 
+}
+
+input#searchField.keyword::selection {
+  color: #fff;
+  background-color: #FFC800;
+}
+
 button#search {
 	width: 100%;
 	height: 50px;
