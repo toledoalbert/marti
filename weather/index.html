@@ -109,6 +109,7 @@
           $.getJSON('http://martiapi.herokuapp.com/getTweets/sunny+cloudy+snow+rain+thunder/' + locationData.coordinates[0] + ',' + locationData.coordinates[1] + ',500mi', function(data) {
             addWeather(coordinates, locationData.city, data);
             $("#" + locationData.city).remove();
+            $("#" + locationData.city).remove();
           });
 
       };
@@ -117,6 +118,8 @@
           var word = data.maxWord;
           console.log(city + data.maxWord);
           var icon;
+
+          // $("#" + locationData.city).remove();
 
           // This is ugly, but I'm lazy
           if(word == "sunny") {
@@ -195,204 +198,275 @@
       // Map cities based on scroll position
       $(window).scroll(function() { 
         if($('#chart').offset().top - $(window).scrollTop() < 160 && fired < 1) {
-          mapCity({
-            coordinates: ['33.74718','-84.389817'],
-            city: 'atlanta'
-          });
+          // mapCity({
+          //   coordinates: ['33.74718','-84.389817'],
+          //   city: 'atlanta'
+          // }); 
+          // sleep(1000);
           // mapCity({
           //   coordinates: ['42.651445','-73.755254'],
           //   city: 'albany'
-          // });
-          mapCity({
-            coordinates: ['35.785510','-78.642669'],
-            city: 'raleigh'
-          });
+          // }); 
+          // sleep(1000);
+          // mapCity({
+          //   coordinates: ['35.785510','-78.642669'],
+          //   city: 'raleigh'
+          // }); 
+          // sleep(1000);
           // mapCity({
           //   coordinates: ['46.805372','-100.779334'],
           //   city: 'bismark'
-          // });
+          // }); 
+          // sleep(1000);
+          // mapCity({
+          //   coordinates: ['38.8044','-77.012208'],
+          //   city: 'dc'
+          // }); 
+          // sleep(1000);
           mapCity({
-            coordinates: ['38.8044','-77.012208'],
-            city: 'dc'
-          });
-         //  mapCity({
-         //    coordinates: ['32.380120','-86.300629'],
-         //    city: 'montgomery'
-         //  });
+            coordinates: ['32.380120','-86.300629'],
+            city: 'montgomery'
+          }); 
+         //  sleep(1000);
          //  mapCity({
          //    coordinates: ['58.299740','-134.406794'],
          //    city: 'juneau'
-         //  });
-         // mapCity({
+         //  }); 
+         //  sleep(1000);
+         //  mapCity({
          //    coordinates: ['33.448260','-112.075774'],
          //    city: 'phoenix'
-         //  });
-         // mapCity({
+         //  }); 
+         //  sleep(1000);
+         //  mapCity({
          //    coordinates: ['34.748655','-92.274494'],
          //    city: 'little rock'
-         //  });
-         mapCity({
+         //  }); 
+         //  sleep(1000);
+          mapCity({
             coordinates: ['38.579065','-121.491014'],
             city: 'sacramento'
-          });     
-         // mapCity({
+          }); 
+         //  sleep(1000);     
+         //  mapCity({
          //    coordinates: ['39.740010','-104.992259'],
          //    city: 'denver'
-         //  });     
-         // mapCity({
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
          //    coordinates: ['41.763325','-72.674069'],
          //    city: 'hartford'
-         //  });     
-     //      mapCity({
-     //        coordinates: ['39.158035','-75.524734'],
-     //        city: 'dover'
-     //      });     
-     //      mapCity({
-     //        coordinates: ['30.439775','-84.280649'],
-     //        city: 'tallahassee'
-     //      });     
-     //      mapCity({
-     //        coordinates: ['21.304770','-157.857614'],
-     //        city: 'honolulu'
-     //      });     
-     //      mapCity({
-     //        coordinates: ['43.606980','-116.193409'],
-     //        city: 'boise'
-     //      });     
-     //      mapCity({
-     //        coordinates: ['39.801055','-89.643604'],
-     //        city: 'springfield'
-     //      });     
-     //      mapCity({
-     //        coordinates: ['39.766910','-86.149964'],
-     //        city: 'indianapolis'
-     //      });     
-     //      mapCity({
-     //        coordinates: ['41.589790','-93.615659'],
-     //        city: 'des moines'
-     //      });     mapCity({
-     //        coordinates: ['39.049285','-95.671184'],
-     //        city: 'topeka'
-     //      });     
-    	// mapCity({
-     //        coordinates: ['38.195070','-84.878694'],
-     //        city: 'frankfort'
-     //      });    
-    	// mapCity({
-     //        coordinates: ['30.443345','-91.186994'],
-     //        city: 'baton rouge'
-     //      });      
-    	// mapCity({
-     //        coordinates: ['44.318036','-69.776218'],
-     //        city: 'augusta'
-     //      });     
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['39.158035','-75.524734'],
+         //    city: 'dover'
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['30.439775','-84.280649'],
+         //    city: 'tallahassee'
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['21.304770','-157.857614'],
+         //    city: 'honolulu'
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['43.606980','-116.193409'],
+         //    city: 'boise'
+         //  }); 
+         //  sleep(1000);     
+          mapCity({
+            coordinates: ['39.801055','-89.643604'],
+            city: 'springfield'
+          }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['39.766910','-86.149964'],
+         //    city: 'indianapolis'
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['41.589790','-93.615659'],
+         //    city: 'des moines'
+         //  }); 
+         //  sleep(1000);    
+         //  mapCity({
+         //    coordinates: ['39.049285','-95.671184'],
+         //    city: 'topeka'
+         //  }); 
+         //  sleep(1000);     
+    	    // mapCity({
+         //    coordinates: ['38.195070','-84.878694'],
+         //    city: 'frankfort'
+         //  }); 
+         //  sleep(1000);    
+    	    // mapCity({
+         //    coordinates: ['30.443345','-91.186994'],
+         //    city: 'baton rouge'
+         //  }); 
+         //  sleep(1000);      
+    	    // mapCity({
+         //    coordinates: ['44.318036','-69.776218'],
+         //    city: 'augusta'
+         //  }); 
+         //  sleep(1000);     
           mapCity({
             coordinates: ['38.976700','-76.489934'],
             city: 'annapolis'
-          });     
+          }); 
+         //  sleep(1000);     
           mapCity({
             coordinates: ['42.358635','-71.056699'],
             city: 'boston'
-          });     
-          // mapCity({
-          //   coordinates: ['42.731940','-84.552249'],
-          //   city: 'lansing'
-          // });     mapCity({
-          //   coordinates: ['44.943829','-93.093326'],
-          //   city: 'saint paul'
-          // });     mapCity({
-          //   coordinates: ['32.298690','-90.180489'],
-          //   city: 'jackson'
-          // });     mapCity({
-          //   coordinates: ['38.577515','-92.177839'],
-          //   city: 'jefferson city'
-          // });     mapCity({
-          //   coordinates: ['46.589760','-112.021202'],
-          //   city: 'helana'
-          // });     mapCity({
-          //   coordinates: ['40.813620','-96.707739'],
-          //   city: 'lincoln'
-          // });     mapCity({
-          //   coordinates: ['39.164885','-119.766999'],
-          //   city: 'carson city'
-          // });     mapCity({
-          //   coordinates: ['43.207250','-71.536604'],
-          //   city: 'concord'
-          // });     mapCity({
-          //   coordinates: ['40.217875','-74.759404'],
-          //   city: 'trenton'
-          // });     mapCity({
-          //   coordinates: ['35.691543','-105.937406'],
-          //   city: 'santa fe'
-          // });
-      //     mapCity({
-      //       coordinates: ['39.961960','-83.002984'],
-      //       city: 'columbus'
-      //     });     
-    	 // mapCity({
-      //       coordinates: ['35.472015','-97.520354'],
-      //       city: 'oklahoma'
-      //     });
-          // mapCity({
-          //   coordinates: ['44.933260','-123.043814'],
-          //   city: 'salem'
-          // });
-          // mapCity({
-          //   coordinates: ['40.259865','-76.882230'],
-          //   city: 'harrisburg'
-          // });
-          // mapCity({
-          //   coordinates: ['41.823875','-71.411994'],
-          //   city: 'providence'
-          // });
+          }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['42.731940','-84.552249'],
+         //    city: 'lansing'
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['44.943829','-93.093326'],
+         //    city: 'saint paul'
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['32.298690','-90.180489'],
+         //    city: 'jackson'
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['38.577515','-92.177839'],
+         //    city: 'jefferson city'
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['46.589760','-112.021202'],
+         //    city: 'helana'
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['40.813620','-96.707739'],
+         //    city: 'lincoln'
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['39.164885','-119.766999'],
+         //    city: 'carson city'
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['43.207250','-71.536604'],
+         //    city: 'concord'
+         //  }); 
+         //  sleep(1000);     
+         //  mapCity({
+         //    coordinates: ['40.217875','-74.759404'],
+         //    city: 'trenton'
+         //  }); 
+         //  sleep(1000);     
           mapCity({
-            coordinates: ['33.998550','-81.045249'],
-            city: 'columbia'
-          });
-          // mapCity({
-          //   coordinates: ['44.368924','-100.350158'],
-          //   city: 'pierre'
-          // });
-          // mapCity({
-          //   coordinates: ['36.167783','-86.778365'],
-          //   city: 'nashville'
-          // });
-          // mapCity({
-          //   coordinates: ['40.759505','-111.888229'],
-          //   city: 'salt lake city'
-          // });
-          mapCity({
-            coordinates: ['30.267605','-97.742984'],
-            city: 'austin'
-          });
-          // mapCity({
-          //   coordinates: ['44.260299','-72.576264'],
-          //   city: 'montpelier'
-          // });
+            coordinates: ['35.691543','-105.937406'],
+            city: 'santa fe'
+          }); 
+         //  sleep(1000);
+         //  mapCity({
+         //    coordinates: ['39.961960','-83.002984'],
+         //    city: 'columbus'
+         //  }); 
+         //  sleep(1000);     
+    	    mapCity({
+            coordinates: ['35.472015','-97.520354'],
+            city: 'oklahoma'
+          }); 
+         //  sleep(1000);
+         //  mapCity({
+         //    coordinates: ['44.933260','-123.043814'],
+         //    city: 'salem'
+         //  }); 
+         //  sleep(1000);
+         //  mapCity({
+         //    coordinates: ['40.259865','-76.882230'],
+         //    city: 'harrisburg'
+         //  }); 
+         //  sleep(1000);
+         //  mapCity({
+         //    coordinates: ['41.823875','-71.411994'],
+         //    city: 'providence'
+         //  }); 
+         //  sleep(1000);
+         //  mapCity({
+         //    coordinates: ['33.998550','-81.045249'],
+         //    city: 'columbia'
+         //  }); 
+         //  sleep(1000);
+         //  mapCity({
+         //    coordinates: ['44.368924','-100.350158'],
+         //    city: 'pierre'
+         //  }); 
+         //  sleep(1000);
+         //  mapCity({
+         //    coordinates: ['36.167783','-86.778365'],
+         //    city: 'nashville'
+         //  }); 
+         //  sleep(1000);
+         //  mapCity({
+         //    coordinates: ['40.759505','-111.888229'],
+         //    city: 'salt lake city'
+         //  }); 
+         //  sleep(1000);
+         //  mapCity({
+         //    coordinates: ['30.267605','-97.742984'],
+         //    city: 'austin'
+         //  }); 
+         //  sleep(1000);
+         //  mapCity({
+         //    coordinates: ['44.260299','-72.576264'],
+         //    city: 'montpelier'
+         //  }); 
+         //  sleep(1000);
           mapCity({
             coordinates: ['37.540700','-77.433654'],
             city: 'richmond'
-          });
-         // mapCity({
-         //    coordinates: ['47.039231','-122.891366'],
-         //    city: 'olympia'
-         //  });
+          }); 
+         //  sleep(1000);
+         mapCity({
+            coordinates: ['47.039231','-122.891366'],
+            city: 'olympia'
+          }); 
+         // sleep(1000);
          // mapCity({
          //    coordinates: ['38.350195','-81.638989'],
          //    city: 'charleston'
-         //  });
+         //  }); 
+         // sleep(1000);
          // mapCity({
          //    coordinates: ['43.072950','-89.386694'],
          //    city: 'madison'
-         //  });
+         //  }); 
+         // sleep(1000);
          // mapCity({
          //    coordinates: ['41.134815','-104.821544'],
          //    city: 'cheyenne'
-         //  });
+         //  }); 
+         // sleep(1000);
           fired++;
         }
       });
       });
+
+
+      function sleep(milliseconds) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+          if ((new Date().getTime() - start) > milliseconds){
+            break;
+          }
+        }
+      }
     </script>
 
   </body>
