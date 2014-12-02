@@ -118,6 +118,10 @@ span.productName {
   font-weight: 400;
 }
 
+.brand {
+  background: black;
+}
+
 .martiDesc {
   font-size: 25px;
   font-weight: lighter;

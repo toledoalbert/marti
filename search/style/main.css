@@ -33,11 +33,17 @@ p.logo.regex {
   color: #4AAAE1;
 }
 
+#location {
+  margin-top: 10px;
+}
+
 p.navItem a {
 	color: #FFC500;
 	text-decoration: none;
-	font-size: 22px;
+	font-size: 15px;
 	font-weight: lighter;
+  float: right;
+  margin-left: 10px;
 }
 
 img.navItem.logo {
