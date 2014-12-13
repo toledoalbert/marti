@@ -79,7 +79,7 @@ def getTweets(bagofwords, geocodes):
 
 @app.route('/matchTweets/<regex>')
 def matchTweets(regex):
-    results = tweepy.Cursor(api.search, q="", lang="en", result_type="recent", geocode=None).items(1000)
+    results = tweepy.Cursor(api.search, q=" ", lang="en", result_type="recent", geocode=None).items(1000)
 
     tweets = []
     # regex = 'be'
