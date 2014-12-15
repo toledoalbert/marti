@@ -128,7 +128,7 @@ def decodeFromURL(text):
     for key in vocab:
         text.replace(vocab[key], key)
 
-    print text
+    return text
 
 
 
