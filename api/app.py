@@ -79,7 +79,7 @@ def getTweets(bagofwords, geocodes):
 
 @app.route('/matchTweets/<regex>')
 def matchTweets(regex):
-    results = tweepy.Cursor(api.search, q="hello", lang="en", result_type="recent", geocode=None).items(1000)
+    results = tweepy.Cursor(api.search, q="a OR it", lang="en", result_type="recent", geocode=None).items(1000)
 
     tweets = []
     # regex = 'be'
@@ -105,22 +105,22 @@ def decodeFromURL(text):
     #     "$":        "%24",
     #     "%":        "%25",
     #     "&":        "%26"
-    #     # ":":        r'%3A',
-    #     # ";":        "%3B",
-    #     # "<":        "%3C",
-    #     # "=":        "%3D",
-    #     # ">":        "%3E",
-    #     # "?":        "%3F",
-    #     # "@":        "%40",
-    #     # "[":        "%5B",
-    #     # r'\':       "%5C",
-    #     # "]":        "%5D",
-    #     # "^":        "%5E",
-    #     # "`":        "%60",
-    #     # "{":        "%7B",
-    #     # "|":        "%7C",
-    #     # "}":        "%7D",
-    #     # "~":        "%7E"    
+    #     ":":        r'%3A',
+    #     ";":        "%3B",
+    #     "<":        "%3C",
+    #     "=":        "%3D",
+    #     ">":        "%3E",
+    #     "?":        "%3F",
+    #     "@":        "%40",
+    #     "[":        "%5B",
+    #     r'\':       "%5C",
+    #     "]":        "%5D",
+    #     "^":        "%5E",
+    #     "`":        "%60",
+    #     "{":        "%7B",
+    #     "|":        "%7C",
+    #     "}":        "%7D",
+    #     "~":        "%7E"    
     # }
 
     # # regex = "a\sc&=>:@"

@@ -67,7 +67,7 @@ var searchTweets = function(keywords) {
 var matchTweets = function(regex) {
   console.log("Matching...");
   // var words = concatWords(keywords);
-
+  regex = encodeRegex(regex);
   $.ajax({
       // url: "http://martiapi.herokuapp.com/tweets",
       url: "http://martiapi.herokuapp.com/matchTweets/" + regex,
@@ -147,6 +147,37 @@ var concatWords = function(wordsArray) {
 
   return words;
 };
+
+
+var encodeRegex = function(regex) {
+  for (var key in regexToURLVocab) {
+      regex = regex.replace(key, regexToURLVocab[key]);
+  }
+  return regex;
+}
+
+var regexToURLVocab = 
+  {
+    "$":        "%24",
+    "%":        "%25",
+    "&":        "%26",
+    ":":        '%3A',
+    ";":        "%3B",
+    "<":        "%3C",
+    "=":        "%3D",
+    ">":        "%3E",
+    "?":        "%3F",
+    "@":        "%40",
+    "[":        "%5B",
+    '\\':        "%5C",
+    "]":        "%5D",
+    "^":        "%5E",
+    "`":        "%60",
+    "{":        "%7B",
+    "|":        "%7C",
+    "}":        "%7D",
+    "~":        "%7E" 
+  };
 
 var geo_codes = {
 
