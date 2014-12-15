@@ -23,7 +23,7 @@ def Hello():
 def getTweets(bagofwords, geocodes):
 
     wordsArray=bagofwords.split('+')
-    bagofwords=bagofwords.replace('+',' OR ' )
+    bagofwords=bagofwords.replace('+',' ' )
 
     print bagofwords
 
