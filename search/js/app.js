@@ -33,7 +33,7 @@ var searchTweets = function(keywords) {
 
   $.ajax({
       // url: "http://martiapi.herokuapp.com/tweets",
-      url: "http://martiapi.herokuapp.com/getTweets/" + words,
+      url: "http://martiapi.herokuapp.com/getTweetsAND/" + words,
    
       // the name of the callback parameter, as specified by the YQL service
       json: "callback",

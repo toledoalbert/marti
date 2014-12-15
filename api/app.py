@@ -79,7 +79,7 @@ def getTweets(bagofwords, geocodes):
 
 @app.route('/getTweetsAND/<bagofwords>', defaults={'geocodes': None})
 @app.route('/getTweetsAND/<bagofwords>/<geocodes>')
-def getTweets(bagofwords, geocodes):
+def getTweetsAND(bagofwords, geocodes):
 
     wordsArray=bagofwords.split('+')
     bagofwords=bagofwords.replace('+',' ' )
