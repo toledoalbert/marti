@@ -126,7 +126,7 @@ def decodeFromURL(text):
     # regex = "a\sc&=>:@"
 
     for key in vocab:
-        text.replace(key, vocab[key])
+        text.replace(vocab[key], key)
 
     print text
 
