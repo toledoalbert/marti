@@ -79,7 +79,7 @@ def getTweets(bagofwords, geocodes):
 
 @app.route('/matchTweets/<regex>')
 def matchTweets(regex):
-    results = tweepy.Cursor(api.search, q="a OR it", lang="en", result_type="recent", geocode=None).items(1000)
+    results = tweepy.Cursor(api.search, q="a OR it OR you OR and", lang="en", result_type="recent", geocode=None).items(1000)
 
     tweets = []
     # regex = 'be'
@@ -90,6 +90,18 @@ def matchTweets(regex):
         match = exp.match(tweet.text)
         if match:
             tweets.append({'text':tweet.text, 'id':tweet.id})
+
+    if len(tweets) < 100:
+        results = tweepy.Cursor(api.search, q="a OR it OR you OR and", lang="en", result_type="recent", geocode=None).items(1000)
+            tweets = []
+            # regex = 'be'
+            regex = regex.replace("\"", "")
+            exp = re.compile(r'%s' % regex)
+
+            for tweet in results:
+                match = exp.match(tweet.text)
+                if match:
+                    tweets.append({'text':tweet.text, 'id':tweet.id})
 
     response = jsonify({"data":tweets})
     response.headers['Access-Control-Allow-Origin'] = '*'
