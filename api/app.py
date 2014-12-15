@@ -28,7 +28,7 @@ def getTweets(bagofwords, geocodes):
     print bagofwords
 
     #gecode Option 
-    results = tweepy.Cursor(api.search, q=bagofwords, lang="en", result_type="recent", geocode=geocodes).items(300)
+    results = tweepy.Cursor(api.search, q=bagofwords, lang="en", result_type="recent", geocode=geocodes).items(500)
     
     tweets = []
 
@@ -97,3 +97,47 @@ def matchTweets(regex):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+@app.route('/regexTest/text')
+def decodeFromURL(text):
+
+    vocab = {
+        "$":        "%24",
+        "%":        "%25",
+        "&":        "%26",
+        ":":        "%3A",
+        ";":        "%3B",
+        "<":        "%3C",
+        "=":        "%3D",
+        ">":        "%3E",
+        "?":        "%3F",
+        "@":        "%40",
+        "[":        "%5B",
+        r'\':       "%5C",
+        "]":        "%5D",
+        "^":        "%5E",
+        "`":        "%60",
+        "{":        "%7B",
+        "|":        "%7C",
+        "}":        "%7D",
+        "~":        "%7E"    
+    }
+
+    # regex = "a\sc&=>:@"
+
+    for key in vocab:
+        text.replace(key, vocab[key])
+
+    print text
+
+
+
+
+
+
+
+
+
+
+
+
