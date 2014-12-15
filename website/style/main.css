@@ -16,6 +16,16 @@ div#navbar {
 	margin: 0;
 }
 
+.martiDesc a {
+  color: white;
+  text-decoration: none;
+}
+
+.martiDesc a:hover {
+  color: rgb(244, 244, 244);
+  text-decoration: none;
+}
+
 p.navItem a {
 	color: #FFC500;
 	text-decoration: none;
@@ -142,7 +152,7 @@ span.productName {
   font-weight: lighter;
   /*background: #0098DE;*/
   color: white;
-  padding: 150px 200px 150px 200px;
+  padding: 150px 150px 150px 150px;
   line-height: 60px;
 }
 
@@ -170,6 +180,15 @@ img.prodImage {
   width: auto;
   height: 730px;
   overflow: hidden;
+}
+
+.downloadSDK {
+  padding: 20px 20px 20px 20px;
+  background-color: rgb(247, 223, 30);
+}
+
+.downloadSDK:hover {
+  background-color: rgb(215, 195, 31);
 }
 
 .searchProd img.prodImage {

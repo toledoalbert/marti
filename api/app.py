@@ -23,6 +23,65 @@ def Hello():
 def getTweets(bagofwords, geocodes):
 
     wordsArray=bagofwords.split('+')
+    bagofwords=bagofwords.replace('+',' OR ' )
+
+    print bagofwords
+
+    #gecode Option 
+    results = tweepy.Cursor(api.search, q=bagofwords, lang="en", result_type="recent", geocode=geocodes).items(500)
+    
+    tweets = []
+
+    allWords = []
+
+    cnt = {}
+
+    for word in wordsArray:
+        cnt[word] = 0
+
+    maxWord = ""
+    maxNum = 0
+
+    for tweet in results:
+        tweets.append(
+                {
+                    'text':tweet.text, 
+                    'id':tweet.id,
+                    'sentiment':'positive',
+                    'time':'past',
+                    'scores':[
+                        {
+                           'word':'sunny',
+                           'score':20 
+
+                            }
+                     ]
+                }
+            )
+
+        words = tweet.text.split(' ')
+
+        for word in words:
+            allWords.append(word)
+
+    for word in allWords:
+        if word in cnt.keys():
+            cnt[word] += 1
+
+    for word in wordsArray:
+        if cnt[word] > maxNum:
+            maxWord = word
+            maxNum = cnt[word]
+
+    response = jsonify({"data":tweets, "maxWord":maxWord, "wordCount":cnt})
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
+@app.route('/getTweetsAND/<bagofwords>', defaults={'geocodes': None})
+@app.route('/getTweetsAND/<bagofwords>/<geocodes>')
+def getTweets(bagofwords, geocodes):
+
+    wordsArray=bagofwords.split('+')
     bagofwords=bagofwords.replace('+',' ' )
 
     print bagofwords
