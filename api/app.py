@@ -3,6 +3,7 @@ import flask
 from flask import jsonify
 import tweepy
 import re
+from pymongo import Connection
 # import tweetstream
 # from flask.ext.jsonpify import jsonify
 
@@ -172,34 +173,37 @@ if __name__ == '__main__':
 @app.route('/regexTest/<text>')
 def decodeFromURL(text):
 
-    # vocab = {
-    #     "$":        "%24",
-    #     "%":        "%25",
-    #     "&":        "%26"
-    #     ":":        r'%3A',
-    #     ";":        "%3B",
-    #     "<":        "%3C",
-    #     "=":        "%3D",
-    #     ">":        "%3E",
-    #     "?":        "%3F",
-    #     "@":        "%40",
-    #     "[":        "%5B",
-    #     r'\':       "%5C",
-    #     "]":        "%5D",
-    #     "^":        "%5E",
-    #     "`":        "%60",
-    #     "{":        "%7B",
-    #     "|":        "%7C",
-    #     "}":        "%7D",
-    #     "~":        "%7E"    
-    # }
+    # Use a database already created on mongolab 
+    server = 'ds063240.mongolab.com'
+    port = 63240
+    db_name = 'marti'
+    username = 'marti'
+    password = 'marti2014'
 
-    # # regex = "a\sc&=>:@"
+    conn = Connection(server, port)
 
-    # for key in vocab:
-    #     text.replace(vocab[key], key)
+    db = conn[db_name]
 
-    return text
+    db.authenticate(username, password)
+
+    posts = db.a
+
+    alll = posts.find()
+
+    # tweets = []
+    # regex = regex.replace("\"", "")
+    # exp = re.compile(r'%s' % regex)
+
+    # for tweet in results:
+    #     match = exp.match(tweet.text)
+    #     if match:
+    #         tweets.append({'text':tweet.text, 'id':tweet.id})
+
+    # response = jsonify({"data":tweets})
+    response = jsonify(alll)
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
 
 
 
