@@ -174,11 +174,11 @@ if __name__ == '__main__':
 def decodeFromURL(text):
 
     # Use a database already created on mongolab 
-    # server = 'ds063240.mongolab.com'
-    # port = 63240
-    # db_name = 'marti'
-    # username = 'marti'
-    # password = 'marti2014'
+    server = 'ds063240.mongolab.com'
+    port = 63240
+    db_name = 'marti'
+    username = 'marti'
+    password = 'marti2014'
 
     # conn = Connection(server, port)
 
