@@ -182,9 +182,9 @@ def decodeFromURL(text):
 
     conn = Connection(server, port)
 
-    # db = conn[db_name]
+    db = conn[db_name]
 
-    # db.authenticate(username, password)
+    db.authenticate(username, password)
 
     # posts = db.a
 
