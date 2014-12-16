@@ -191,10 +191,10 @@ def decodeFromURL(text):
     tweets = []
 
     regex = re.compile('^@', re.IGNORECASE)
-    for post in posts.find({'text' : "A military dog was spotted in the airport, protecting a soldier while he sleeps. http://t.co/7vunzzwB0Q"}):
+    for post in posts.find({'text' : "RT @Felicia70469525: #GodsPrayerRoom Hello from Half Pint in Lubbock Tx Yeeeeeehawwwwwwwwww"}):
         tweets.append(post)
-        if len(tweets) > 500:
-            break
+        # if len(tweets) > 500:
+        #     break
 
     # tweets = []
     # regex = regex.replace("\"", "")
