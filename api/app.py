@@ -188,7 +188,13 @@ def decodeFromURL(text):
 
     posts = db.a
 
-    alll = posts.find()
+    tweets = []
+
+    regex = re.compile('^@', re.IGNORECASE)
+    for post in posts.find({'text' : regex}):
+        tweets.append(post)
+        if len(tweets) > 500:
+            break
 
     # tweets = []
     # regex = regex.replace("\"", "")
@@ -199,8 +205,8 @@ def decodeFromURL(text):
     #     if match:
     #         tweets.append({'text':tweet.text, 'id':tweet.id})
 
-    # response = jsonify({"data":tweets})
-    response = jsonify(alll)
+    response = jsonify({"data":tweets})
+    # response = jsonify()
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
