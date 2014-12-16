@@ -174,27 +174,27 @@ if __name__ == '__main__':
 def decodeFromURL(text):
 
     # Use a database already created on mongolab 
-    server = 'ds063240.mongolab.com'
-    port = 63240
-    db_name = 'marti'
-    username = 'marti'
-    password = 'marti2014'
+    # server = 'ds063240.mongolab.com'
+    # port = 63240
+    # db_name = 'marti'
+    # username = 'marti'
+    # password = 'marti2014'
 
-    conn = Connection(server, port)
+    # conn = Connection(server, port)
 
-    db = conn[db_name]
+    # db = conn[db_name]
 
-    db.authenticate(username, password)
+    # db.authenticate(username, password)
 
     posts = db.a
 
     tweets = []
 
-    regex = re.compile('^@', re.IGNORECASE)
-    for post in posts.find({'text' : regex}):
-        tweets.append(post)
-        if len(tweets) > 500:
-            break
+    # regex = re.compile('^@', re.IGNORECASE)
+    # for post in posts.find({'text' : regex}):
+    #     tweets.append(post)
+    #     if len(tweets) > 500:
+    #         break
 
     # tweets = []
     # regex = regex.replace("\"", "")
