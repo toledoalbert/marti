@@ -4,6 +4,7 @@ from flask import jsonify
 import tweepy
 import re
 from pymongo import Connection
+import os
 # import tweetstream
 # from flask.ext.jsonpify import jsonify
 
@@ -137,7 +138,7 @@ def getTweetsAND(bagofwords, geocodes):
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
-@app.route('/matchTweets/<regex>')
+@app.route('/matchTweetsRealtime/<regex>')
 def matchTweets(regex):
     results = tweepy.Cursor(api.search, q="a OR it OR you OR and", lang="en", result_type="recent", geocode=None).items(1000)
 
@@ -167,11 +168,8 @@ def matchTweets(regex):
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
-@app.route('/regexTest/<text>')
-def decodeFromURL(text):
+@app.route('/matchTweets/<regex>')
+def decodeFromURL(regex):
 
     # Use a database already created on mongolab 
     server = 'ds063240.mongolab.com'
@@ -189,28 +187,24 @@ def decodeFromURL(text):
     posts = db.a
 
     tweets = []
-
-    regex = re.compile('^@', re.IGNORECASE)
-    for post in posts.find({'text' : "RT @Felicia70469525: #GodsPrayerRoom Hello from Half Pint in Lubbock Tx Yeeeeeehawwwwwwwwww"}):
-        tweets.append(post)
-        # if len(tweets) > 500:
-        #     break
-
-    # tweets = []
+    print regex
+    regex = re.compile(regex, re.IGNORECASE)
     # regex = regex.replace("\"", "")
     # exp = re.compile(r'%s' % regex)
-
-    # for tweet in results:
-    #     match = exp.match(tweet.text)
-    #     if match:
-    #         tweets.append({'text':tweet.text, 'id':tweet.id})
+    for post in posts.find({'text' : regex}):
+        tweets.append({"id": post['id'], "text": post['text']})
+        if len(tweets) > 500:
+            break
 
     response = jsonify({"data":tweets})
     # response = jsonify()
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
-
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5005))
+    app.run(host='0.0.0.0', port=port, debug=True)
+    # app.run(debug=True)
 
 
 
