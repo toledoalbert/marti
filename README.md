@@ -29,6 +29,7 @@ or you could visit the hosted application at http://alberttoledo.com/marti/searc
 * server: ds063240.mongolab.com
 * port: 63240
 * db name: marti
-* db user: marti
+* db user: marti	
 * password: marti2014
 
+#####For more information visit http://alberttoledo.com/marti/website
