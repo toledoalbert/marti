@@ -186,7 +186,7 @@ def decodeFromURL(text):
 
     db.authenticate(username, password)
 
-    # posts = db.a
+    posts = db.a
 
     tweets = []
 
