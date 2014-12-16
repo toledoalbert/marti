@@ -180,7 +180,7 @@ def decodeFromURL(text):
     username = 'marti'
     password = 'marti2014'
 
-    # conn = Connection(server, port)
+    conn = Connection(server, port)
 
     # db = conn[db_name]
 
