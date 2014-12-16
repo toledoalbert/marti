@@ -46,6 +46,13 @@ p.navItem a {
   margin-left: 10px;
 }
 
+p#noResults {
+  text-align: center;
+  font-size: 25px;
+  color: rgb(70, 115, 141);
+  font-weight: 200;
+}
+
 img.navItem.logo {
 	vertical-align: middle;
 	height: 30px;

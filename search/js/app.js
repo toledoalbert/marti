@@ -58,7 +58,7 @@ var searchTweets = function(keywords) {
                   $("#results").show();
                   $("#resultsHeader").show();
                 });
-            }, 5000);
+            }, 10);
           });
       }
   });
@@ -67,7 +67,7 @@ var searchTweets = function(keywords) {
 var matchTweets = function(regex) {
   console.log("Matching...");
   // var words = concatWords(keywords);
-  regex = encodeRegex(regex);
+  // regex = encodeRegex(regex);
   $.ajax({
       // url: "http://martiapi.herokuapp.com/tweets",
       url: "http://martiapi.herokuapp.com/matchTweets/" + regex,
@@ -80,6 +80,7 @@ var matchTweets = function(regex) {
    
       // work with the response
       success: function( response ) {
+        if(response.data.length > 0){
           $.each( response.data, function( key, val ) {
             setTimeout(function () {
               console.log("in the loop", key, val.id);
@@ -95,8 +96,15 @@ var matchTweets = function(regex) {
                   $("#results").show();
                   $("#resultsHeader").show();
                 });
-            }, 5000);
+            }, 1000);
           });
+        } else {
+          $("#spinner").hide();
+          document.getElementById("resultsHeader").style.display = "block";
+          $("#results").show();
+          $('#results').html("<br><p id='noResults'>NO RESULTS FOUND FOR YOUR QUERY   :(</p>");
+          $("#resultsHeader").show();
+        }
       }
   });
 };
