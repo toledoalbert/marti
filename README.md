@@ -26,9 +26,9 @@ or you could visit the hosted application at http://alberttoledo.com/marti/searc
 ###Database
 * The database we used to store Tweets to be used in some features of the API is a Mongo Database hosted on MongoLab.
 * Following are the credentials to connect to the database:
-⋅⋅ server: ds063240.mongolab.com
-⋅⋅ port: 63240
-⋅⋅ db name: marti
-⋅⋅ db user: marti
-⋅⋅ password: marti2014
+** server: ds063240.mongolab.com
+** port: 63240
+** db name: marti
+** db user: marti
+** password: marti2014
 
