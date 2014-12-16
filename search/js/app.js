@@ -12,6 +12,7 @@ var searchButtonClicked = function () {
   $("#results").innerHTML = "";
   $("#results").hide();
   $("#resultsHeader").hide();
+  $('.smallTweet').remove();
   var searchFieldValue = document.getElementById("searchField").value;
   console.log("searchFieldValue: " + searchFieldValue);
   searchFieldValue = searchFieldValue + "";
@@ -59,7 +60,9 @@ var searchTweets = function(keywords) {
                   $("#resultsHeader").show();
                 });
             }, 10);
+            $("#results").append("<p class='smallTweet'>" + val.text + "</p>");
           });
+          $(".smallTweet").insertAfter("#results");
       }
   });
 };
@@ -96,7 +99,8 @@ var matchTweets = function(regex) {
                   $("#results").show();
                   $("#resultsHeader").show();
                 });
-            }, 1000);
+            }, 10);
+            $("#results").append("<p class='smallTweet'>" + val.text + "</p>");
           });
         } else {
           $("#spinner").hide();
@@ -105,6 +109,7 @@ var matchTweets = function(regex) {
           $('#results').html("<br><p id='noResults'>NO RESULTS FOUND FOR YOUR QUERY   :(</p>");
           $("#resultsHeader").show();
         }
+        $(".smallTweet").insertAfter("#results");
       }
   });
 };

@@ -107,7 +107,7 @@
               .attr("height", "20px")
 
 
-          $.getJSON('http://martiapi.herokuapp.com/getTweets/sunny+cloudy+snow+rain+thunder/' + locationData.coordinates[0] + ',' + locationData.coordinates[1] + ',500mi', function(data) {
+          $.getJSON('http://martiapi.herokuapp.com/getTweets/sunny+cloudy+snow+rain+thunder/' + locationData.coordinates[0] + ',' + locationData.coordinates[1] + ',50mi', function(data) {
             addWeather(coordinates, locationData.city, data);
             $("#" + locationData.city).remove();
             $("#" + locationData.city).remove();

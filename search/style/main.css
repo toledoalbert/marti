@@ -53,6 +53,17 @@ p#noResults {
   font-weight: 200;
 }
 
+p.smallTweet {
+  background: white;
+  padding: 30px;
+  text-align: center;
+  /* width: 50%; */
+  align-self: center;
+  /* margin-left: 25%; */
+  color: rgb(81, 81, 81);
+  box-shadow: 1px 1px 3px #BDBDBD;
+}
+
 img.navItem.logo {
 	vertical-align: middle;
 	height: 30px;
