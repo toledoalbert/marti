@@ -190,7 +190,7 @@ def decodeFromURL(text):
 
     tweets = []
 
-    # regex = re.compile('^@', re.IGNORECASE)
+    regex = re.compile('^@', re.IGNORECASE)
     # for post in posts.find({'text' : regex}):
     #     tweets.append(post)
     #     if len(tweets) > 500:
